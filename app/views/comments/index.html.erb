@@ -1,0 +1,25 @@
+<nav>
+  <% if user_signed_in? %>
+    <%= link_to("Profile", profile_path(current_user.profile.id), method: :get) %>
+    <%= link_to("Can't handle the heat. Sign Out.", destroy_user_session_path, method: :delete) %>
+  <% else %>
+    <%= link_to("Get me back in the game. Sign In.", user_session_path, method: :get) %>
+      <br>
+    <%= link_to("Sign Up to roast somebody", new_user_registration_path, method: :get) %>
+  <% end %>
+</nav>
+
+<h1>Roast Pit</h1>
+<% if user_signed_in? %>
+<h3>logged in as <%= current_user.profile.username %></h3>
+<%= image_tag current_user.profile.profilepic.url(:medium) %></br>
+<% end %>
+
+<table id="roastComments">
+
+</table>
+<%= form_tag(comments_path, method: :post, remote: true) do %>
+  <%= label_tag(:content) %>:
+  <%= text_field_tag(:content) %>
+  <%= submit_tag("Roast!") %>
+<% end %>
