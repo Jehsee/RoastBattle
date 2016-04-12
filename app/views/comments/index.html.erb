@@ -14,12 +14,12 @@
 <h3>logged in as <%= current_user.profile.username %></h3>
 <%= image_tag current_user.profile.profilepic.url(:medium) %></br>
 <% end %>
+
+<table id="roastComments">
+
+</table>
 <%= form_tag(comments_path, method: :post, remote: true) do %>
   <%= label_tag(:content) %>:
   <%= text_field_tag(:content) %>
   <%= submit_tag("Roast!") %>
 <% end %>
-
-<table id="roastComments">
-
-</table>
