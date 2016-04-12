@@ -1,0 +1,3 @@
+<% notify "/comments" do %>
+  $("#roastComments").html("<%= escape_javascript(render partial: 'roastComments') %>")
+<% end %>
