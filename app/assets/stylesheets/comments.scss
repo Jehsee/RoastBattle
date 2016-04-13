@@ -1,3 +1,30 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+  text-align: center;
+}
+
+#roastarena {
+  border: 1px solid black;
+  width: 100%;
+    #joinleft {
+      border: 1px solid red;
+      display: inline-block;
+      width: 40%;
+      text-align: center;
+    }
+    #vs {
+      border: 1px solid yellow;
+      display: inline-block;
+      width: 18%;
+      text-align: center;
+    }
+    #joinright {
+      border: 1px solid red;
+      display: inline-block;
+      width: 40%;
+      text-align: center;
+    }
+}

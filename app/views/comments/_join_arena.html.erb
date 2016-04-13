@@ -1,0 +1,4 @@
+<% @arena.each do |a| %>
+  <%= a.user.profile.username %>
+  <%= image_tag a.user.profile.profilepic.url(:medium) %>
+<% end %>

@@ -9,14 +9,36 @@
   <% end %>
 </nav>
 
-<h1>Roast Pit</h1>
+<h1>Roast Arena</h1>
 <% if user_signed_in? %>
 <h3>logged in as <%= current_user.profile.username %></h3>
-<%= image_tag current_user.profile.profilepic.url(:medium) %></br>
 <% end %>
 
-<table id="roastComments">
+<div id='arena'>
+  <% if @arena.count == 1 %>
+    <% firstArenaMember = @arena.first %>
+    <%= firstArenaMember.user.profile.username %>
+    <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
+  <% elsif @arena.count == 2 %>
+    <% firstArenaMember = @arena.first %>
+    <%= firstArenaMember.user.profile.username %>
+    <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
+    <% secondArenaMember = @arena.last %>
+    <%= secondArenaMember.user.profile.username %>
+    <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
+  <% end %>
 
+  <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+      <%= link_to 'Join the Arena', join_arena_path, method: :post, remote: true %>
+  <% end %>
+</div>
+
+
+
+
+
+
+<table id="roastComments">
 </table>
 <%= form_tag(comments_path, method: :post, remote: true) do %>
   <%= label_tag(:content) %>:

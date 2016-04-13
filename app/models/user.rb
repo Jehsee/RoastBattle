@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :comments
+  has_one :user
 
   after_create do
-    Profile.create(user_id: self.id, wins: 0, loss: 0, ko: 0)
+    Profile.create(user_id: self.id, wins: 0, loss: 0, ko: 0, active: false)
   end
 end
