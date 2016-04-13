@@ -8,9 +8,6 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
 
-  post 'display_left_roaster' => 'comments#display_left_roaster'
-  post 'display_right_roaster' => 'comments#display_right_roaster'
-
   post 'join_arena' => 'comments#join_arena'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

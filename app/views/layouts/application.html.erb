@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<nav>
+  <% if user_signed_in? %>
+    <%= link_to("Profile", profile_path(current_user.profile.id), method: :get) %>
+    <%= link_to("Can't handle the heat. Sign Out.", destroy_user_session_path, method: :delete) %>
+  <% else %>
+    <%= link_to("Get me back in the game. Sign In.", user_session_path, method: :get) %>
+      <br>
+    <%= link_to("Sign Up to roast somebody", new_user_registration_path, method: :get) %>
+  <% end %>
+</nav>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 </body>

@@ -1,3 +1,0 @@
-<% notify "/comments" do %>
-  $('#joinleft').html("<%= image_tag @profile.profilepic.url(:medium).where(Profile.active: true) %>");
-<% end %>
