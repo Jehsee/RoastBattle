@@ -1,0 +1,3 @@
+class ArenasController < ApplicationController
+
+end

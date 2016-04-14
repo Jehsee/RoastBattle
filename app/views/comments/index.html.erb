@@ -8,26 +8,32 @@
     <% firstArenaMember = @arena.first %>
     <%= firstArenaMember.user.profile.username %>
     <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
-  <% elsif @arena.count == 2 %>
+  <% end %>
+  <% if @arena.count == 2 %>
     <% firstArenaMember = @arena.first %>
     <%= firstArenaMember.user.profile.username %>
     <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
     <% secondArenaMember = @arena.last %>
     <%= secondArenaMember.user.profile.username %>
     <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
+<div id="timer"></div>
+
   <% end %>
 
   <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
-      <%= link_to 'Join the Arena', join_arena_path, method: :post, remote: true %>
+      <%= link_to 'Join the Arena', join_arena_path, method: :post, remote: true, class: "joinLink" %>
   <% end %>
-</div>
 
-<table id="roastComments">
-</table>
-<% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
-  <%= form_tag(comments_path, method: :post, remote: true) do %>
-    <%= label_tag(:content) %>:
-    <%= text_field_tag(:content) %>
-    <%= submit_tag("Roast!") %>
+  <table id="roastComments"></table>
+
+  <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
+    <div class='commentBox'>
+      <%= form_tag(comments_path, method: :post, remote: true) do %>
+        <%= label_tag(:content) %>:
+        <%= text_field_tag(:content) %>
+        <%= submit_tag("Roast!") %>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+
+</div>
