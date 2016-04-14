@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'check_arena' => 'comments#check_arena'
   post 'join_arena' => 'comments#join_arena'
+  post 'vote_left' => 'comments#vote_left'
+  post 'vote_right' => 'comments#vote_right'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

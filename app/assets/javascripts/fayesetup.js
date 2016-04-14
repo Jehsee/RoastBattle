@@ -6,20 +6,38 @@ $(function() {
 })
 
 var counter = setInterval(timer, 1000)
-  var count = 5;
+var count = 6;
 function timer() {
   count = count-1;
-  if (count < 0)
+  if (count <= 0)
   {
      clearInterval(counter);
      //counter ended, do something here
-     $.ajax("/check_arena")
+      var battleCounter = setInterval(timer, 1000)
+      var battleCount = 11;
+      function timer() {
+        battleCount = battleCount-1;
+        if (battleCount < 0)
+        {
+           clearInterval(battleCounter);
+          // grab the values of the vote totals.
 
-     location.reload()
-     return;
+           //counter ends, do something here
+
+           $.ajax("/check_arena")
+           // location.reload()
+           return;
+        }
+
+        // Display of Battle Timer and comment form
+        $(".commentBox").removeClass("commentBox")
+        $("#timer").html( battleCount + " seconds")
+
+
+      }
   }
 
-  //Do code for showing the number of seconds here
-  $("#timer").html( count + "secs")
+  // Pre-Battle display of Timer
+  $("#timer").html( "Roasting begins in " + count + " seconds.")
 }
 
