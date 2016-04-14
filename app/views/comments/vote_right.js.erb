@@ -1,4 +1,4 @@
 <% notify "/comments" do %>
-  $("#voteTotalLeft").html("<%= escape_javascript(render partial: 'vote_left') %>")
   $("#voteTotalRight").html("<%= escape_javascript(render partial: 'vote_right') %>")
+  $("#voteTotalLeft").html("<%= escape_javascript(render partial: 'vote_left') %>")
 <% end %>

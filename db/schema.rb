@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414175648) do
+ActiveRecord::Schema.define(version: 20160414192402) do
 
   create_table "arenas", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "vote"
+    t.decimal  "vote"
   end
 
   create_table "comments", force: :cascade do |t|

@@ -20,24 +20,24 @@ function timer() {
         if (battleCount < 0)
         {
            clearInterval(battleCounter);
-          // tally vote, ajax call,
+          // grab the values of the vote totals.
 
-           //counter ended, do something here
+           //counter ends, do something here
+
            $.ajax("/check_arena")
-
-           location.reload()
+           // location.reload()
            return;
         }
 
         // Display of Battle Timer and comment form
         $(".commentBox").removeClass("commentBox")
-        $("#timer").html( "Roast! " + battleCount + "secs")
+        $("#timer").html( battleCount + " seconds")
 
 
       }
   }
 
   // Pre-Battle display of Timer
-  $("#timer").html( "Get ready to roast! " + count + "secs")
+  $("#timer").html( "Roasting begins in " + count + " seconds.")
 }
 

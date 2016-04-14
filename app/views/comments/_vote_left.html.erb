@@ -1,1 +1,1 @@
-<%= (@arena.first.vote / (@arena.last.vote + @arena.first.vote))*100 + "%" %>
+<%= ((@arena.first.vote / (@arena.first.vote + @arena.last.vote))*100).round %>%

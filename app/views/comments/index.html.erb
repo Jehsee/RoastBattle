@@ -1,10 +1,3 @@
-
-  <div id="voteTotalLeft"></div>
-      <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteFormLeft") do %>
-        <%= submit_tag("Damn that's Fire") %>
-      <% end %>
-
-
 <h1>Roast Arena</h1>
 <% if user_signed_in? %>
 <h3>logged in as <%= current_user.profile.username %></h3>
@@ -20,15 +13,24 @@
     <% firstArenaMember = @arena.first %>
     <%= firstArenaMember.user.profile.username %>
     <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
-    <div id="leftvote">
-      <button class="votebutton" id="voteleft">vote</button>
-    </div>
+
+  <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
+      <div id="voteTotalLeft"></div>
+      <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm") do %>
+        <%= submit_tag("Damn that's Fire") %>
+      <% end %>
+  <% end %>
+
     <% secondArenaMember = @arena.last %>
     <%= secondArenaMember.user.profile.username %>
     <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
-    <div id="rightvote">
-      <button class="votebutton" id="voteright">vote</button>
-    </div>
+
+  <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
+    <div id="voteTotalRight"></div>
+      <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteForm") do %>
+        <%= submit_tag("Damn that's Fire") %>
+      <% end %>
+  <% end %>
 
     <div id="timer"></div>
   <% end %>
