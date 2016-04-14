@@ -1,3 +1,10 @@
+
+  <div id="voteTotalLeft"></div>
+      <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteFormLeft") do %>
+        <%= submit_tag("Damn that's Fire") %>
+      <% end %>
+
+
 <h1>Roast Arena</h1>
 <% if user_signed_in? %>
 <h3>logged in as <%= current_user.profile.username %></h3>
@@ -13,11 +20,17 @@
     <% firstArenaMember = @arena.first %>
     <%= firstArenaMember.user.profile.username %>
     <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
+    <div id="leftvote">
+      <button class="votebutton" id="voteleft">vote</button>
+    </div>
     <% secondArenaMember = @arena.last %>
     <%= secondArenaMember.user.profile.username %>
     <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
-<div id="timer"></div>
+    <div id="rightvote">
+      <button class="votebutton" id="voteright">vote</button>
+    </div>
 
+    <div id="timer"></div>
   <% end %>
 
   <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
@@ -28,7 +41,7 @@
 
   <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
     <div class='commentBox'>
-      <%= form_tag(comments_path, method: :post, remote: true) do %>
+      <%= form_tag(comments_path, method: :post, remote: true, class: "roastForm") do %>
         <%= label_tag(:content) %>:
         <%= text_field_tag(:content) %>
         <%= submit_tag("Roast!") %>

@@ -1,0 +1,3 @@
+<% notify "/comments" do %>
+  $("#voteTotalLeft").html("<%= escape_javascript(render partial: 'vote_left') %>")
+<% end %>
