@@ -13,9 +13,9 @@
     <% firstArenaMember = @arena.first %>
     <%= firstArenaMember.user.profile.username %>
     <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
+      <div id="voteTotalLeft"></div>
 
   <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-      <div id="voteTotalLeft"></div>
       <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm") do %>
         <%= submit_tag("Damn that's Fire") %>
       <% end %>
@@ -24,9 +24,9 @@
     <% secondArenaMember = @arena.last %>
     <%= secondArenaMember.user.profile.username %>
     <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
+    <div id="voteTotalRight"></div>
 
   <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-    <div id="voteTotalRight"></div>
       <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteForm") do %>
         <%= submit_tag("Damn that's Fire") %>
       <% end %>

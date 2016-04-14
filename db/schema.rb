@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414192402) do
+ActiveRecord::Schema.define(version: 20160414220748) do
 
   create_table "arenas", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160414192402) do
     t.string   "profilepic_content_type"
     t.integer  "profilepic_file_size"
     t.datetime "profilepic_updated_at"
+    t.integer  "ties"
   end
 
   create_table "users", force: :cascade do |t|

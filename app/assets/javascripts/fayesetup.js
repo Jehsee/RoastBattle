@@ -21,7 +21,10 @@ function timer() {
         {
            clearInterval(battleCounter);
           // grab the values of the vote totals.
+            var leftTotal = $("#voteTotalLeft").text().slice(0, -2) //mystery '%' somewhere.
+            var rightTotal = $("#voteTotalRight").text().slice(0, -1)
 
+            if (leftTotal > rightTotal)
            //counter ends, do something here
 
            $.ajax("/check_arena")
