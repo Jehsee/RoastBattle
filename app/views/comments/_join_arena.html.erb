@@ -1,4 +1,14 @@
-<% @arena.each do |a| %>
-  <%= a.user.profile.username %>
-  <%= image_tag a.user.profile.profilepic.url(:medium) %>
-<% end %>
+  <% if @arena.count == 1 %>
+    <% firstArenaMember = @arena.first %>
+    <%= firstArenaMember.user.profile.username %>
+    <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
+     <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+      <%= link_to 'Join the Arena', join_arena_path, method: :post, remote: true, class: "joinLink" %>
+    <% end %>
+  <% end %>
+
+  <% if @arena.count == 2 %>
+    <% secondArenaMember = @arena.last %>
+    <%= secondArenaMember.user.profile.username %>
+    <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
+  <% end %>

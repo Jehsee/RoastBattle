@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   resources :profiles
   resources :comments
+  resources :arenas
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'home#index'
 
+  get 'check_arena' => 'comments#check_arena'
   post 'join_arena' => 'comments#join_arena'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

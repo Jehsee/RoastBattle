@@ -3,6 +3,7 @@ gem 'devise'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'faye'
 gem 'thin'
+gem 'timers'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
