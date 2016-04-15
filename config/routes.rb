@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
 
+  get 'update_profile_ties' => 'comments#update_profile_ties'
+  get 'update_profile_right' => 'comments#update_profile_right'
+  get 'update_profile_left' => 'comments#update_profile_left'
   get 'check_arena' => 'comments#check_arena'
   post 'join_arena' => 'comments#join_arena'
   post 'vote_left' => 'comments#vote_left'
