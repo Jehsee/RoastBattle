@@ -3,8 +3,9 @@
 <%= image_tag @profile.profilepic.url(:medium) %></br>
 
 Username: <%= @profile.username %></br>
-Total Wins:<%= @profile.wins %></br>
-Total Losses:<%= @profile.loss %></br>
+Total Wins: <%= @profile.wins %></br>
+Total Losses: <%= @profile.loss %></br>
+Total Ties: <%= @profile.ties %></br>
 Total Knockouts: <%= @profile.ko %></br>
 
 <%= link_to("Edit Profile", edit_profile_path(@profile.id), method: :get) %><br>
