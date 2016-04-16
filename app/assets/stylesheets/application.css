@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+#sidebar {
+  border: 2px solid black;
+  display: inline-block;
+  position: absolute;
+  width: 15%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}

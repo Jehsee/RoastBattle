@@ -1,7 +1,4 @@
-<h1>Roast Arena</h1>
-<% if user_signed_in? %>
-<h3>logged in as <%= current_user.profile.username %></h3>
-<% end %>
+<div id="container">
 
 <div id='arena'>
   <% if @arena.count == 1 %>
@@ -39,10 +36,6 @@
         <div id="timer"></div>
   <% end %>
 
-  <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
-      <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
-  <% end %>
-
   <table id="roastComments"></table>
 
   <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
@@ -55,4 +48,10 @@
     </div>
   <% end %>
 
+  <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+      <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
+  <% end %>
+</div>
+
+<!-- end of container -->
 </div>

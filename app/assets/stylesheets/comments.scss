@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#container {
+  border: 1px solid black;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 84%;
+  height: 100%;
+}
+
+
+
+
+
+
+
 /*#adv-round-rectangle{
 border-width: 0px 12px 0px 12px;
 border-style: double;
@@ -13,10 +29,10 @@ border-radius:40px 40px 60px 60px;
 
 
 
-h1 {
+/*h1 {
   text-align: center;
-}
-
+}*/
+/*
 #roastarena {
   border: 1px solid black;
   width: 100%;
@@ -38,7 +54,7 @@ h1 {
       width: 40%;
       text-align: center;
     }
-}
+}*/
 
 .commentBox {
   display: none;

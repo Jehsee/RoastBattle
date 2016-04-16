@@ -7,8 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<nav>
+<nav id="sidebar">
   <% if user_signed_in? %>
     <%= link_to("Profile", profile_path(current_user.profile.id), method: :get) %>
     <%= link_to("Can't handle the heat. Sign Out.", destroy_user_session_path, method: :delete) %>
