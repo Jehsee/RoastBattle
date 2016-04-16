@@ -1,54 +1,10 @@
-<h1>Roast Arena</h1>
-<% if user_signed_in? %>
-<h3>logged in as <%= current_user.profile.username %></h3>
+<% if @arena.count == 1 %>
+    <% firstArenaMember = @arena.first %>
+    <%= firstArenaMember.user.profile.username %>
+    <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
+
+    <% if user_signed_in? &&  %>
+      <%= link_to 'Join the Arena', join_arena_path, method: :post, remote: true, class: "joinLink" %>
+    <% end %>
 <% end %>
 
-<div id='arena'>
-  <% if @arena.count == 1 %>
-    <% firstArenaMember = @arena.first %>
-    <%= firstArenaMember.user.profile.username %>
-    <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
-  <% end %>
-  <% if @arena.count == 2 %>
-    <% firstArenaMember = @arena.first %>
-    <%= firstArenaMember.user.profile.username %>
-    <%= image_tag firstArenaMember.user.profile.profilepic.url(:medium) %>
-
-  <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-      <div id="voteTotalLeft"></div>
-      <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm") do %>
-        <%= submit_tag("Damn that's Fire") %>
-      <% end %>
-  <% end %>
-
-    <% secondArenaMember = @arena.last %>
-    <%= secondArenaMember.user.profile.username %>
-    <%= image_tag secondArenaMember.user.profile.profilepic.url(:medium) %>
-
-  <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-    <div id="voteTotalRight"></div>
-      <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteForm") do %>
-        <%= submit_tag("Damn that's Fire") %>
-      <% end %>
-  <% end %>
-
-    <div id="timer"></div>
-  <% end %>
-
-  <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
-      <%= link_to 'Join the Arena', join_arena_path, method: :post, remote: true, class: "joinLink" %>
-  <% end %>
-
-  <table id="roastComments"></table>
-
-  <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
-    <div class='commentBox'>
-      <%= form_tag(comments_path, method: :post, remote: true, class: "roastForm") do %>
-        <%= label_tag(:content) %>:
-        <%= text_field_tag(:content) %>
-        <%= submit_tag("Roast!") %>
-      <% end %>
-    </div>
-  <% end %>
-
-</div>

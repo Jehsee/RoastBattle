@@ -1,5 +1,6 @@
 <% notify "/comments" do %>
-  // $("body").html("<%= escape_javascript(render partial: 'join_arena') %>")
+  // $("#arena").html("<%= escape_javascript(render partial: 'join_arena') %>")
+  console.log("this is in the join arena js file")
   location.reload();
 <% end %>
 
