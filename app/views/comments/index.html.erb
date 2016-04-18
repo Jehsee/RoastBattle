@@ -20,18 +20,28 @@
       <% firstArenaMember = @arena.first %>
         <div id="leftProfilePic" style="background-image: url('<%= firstArenaMember.user.profile.profilepic.url(:medium) %>')">
         </div>
-      <%= firstArenaMember.user.profile.wins %>
-      <%= firstArenaMember.user.profile.loss %>
-      <%= firstArenaMember.user.profile.ties %>
+        <div id="leftRecordBox">
+          <h2>Win</h2>
+          <h3><%= firstArenaMember.user.profile.wins %></h3>
+          <h2>Loss</h2>
+          <h3><%= firstArenaMember.user.profile.loss %></h3>
+          <h2>Ties</h2>
+          <h3><%= firstArenaMember.user.profile.ties %></h3>
+        </div>
     <% end %>
 
     <% if @arena.count == 2 %>
       <% firstArenaMember = @arena.first %>
         <div id="leftProfilePic" style="background-image: url('<%= firstArenaMember.user.profile.profilepic.url(:medium) %>')">
         </div>
-      <%= firstArenaMember.user.profile.wins %>
-      <%= firstArenaMember.user.profile.loss %>
-      <%= firstArenaMember.user.profile.ties %>
+        <div id="leftRecordBox">
+          <h2>Win</h2>
+          <h3><%= firstArenaMember.user.profile.wins %></h3>
+          <h2>Loss</h2>
+          <h3><%= firstArenaMember.user.profile.loss %></h3>
+          <h2>Ties</h2>
+          <h3><%= firstArenaMember.user.profile.ties %></h3>
+        </div>
         <div id="voteTotalLeft">zero</div>
       <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
         <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm") do %>
@@ -44,9 +54,14 @@
         <% secondArenaMember = @arena.last %>
           <div id="rightProfilePic" style="background-image: url('<%= secondArenaMember.user.profile.profilepic.url(:medium) %>')">
           </div>
-        <%= secondArenaMember.user.profile.wins %>
-        <%= secondArenaMember.user.profile.loss %>
-        <%= secondArenaMember.user.profile.ties %>
+        <div id="rightRecordBox">
+          <h2>Win</h2>
+          <h3><%= secondArenaMember.user.profile.wins %></h3>
+          <h2>Loss</h2>
+          <h3><%= secondArenaMember.user.profile.loss %></h3>
+          <h2>Ties</h2>
+          <h3><%= secondArenaMember.user.profile.ties %></h3>
+        </div>
         <div id="voteTotalRight">zero</div>
 
         <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>

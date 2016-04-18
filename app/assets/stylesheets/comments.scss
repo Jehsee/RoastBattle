@@ -75,13 +75,22 @@
   left: 5%;
   width: 44.8%;
   height: 55%;
+  overflow: hidden;
     #leftProfilePic {
       border: 1px solid black;
       float: left;
       height: 80%;
-      width: 50%;
+      width: 250px;
       background-repeat: no-repeat;
       background-position: center;
+    }
+    #leftRecordBox {
+      border: 1px solid green;
+      display: inline-block;
+      position: absolute;
+      left: 250px;
+      width: 25%;
+      text-align: center;
     }
 }
 
@@ -96,13 +105,23 @@
   right: 5%;
   width: 44.8%;
   height: 55%;
+  overflow: hidden;
     #rightProfilePic {
       border:1px solid black;
       float: right;
       height: 80%;
-      width: 50%;
+      width: 250px;
       background-repeat: no-repeat;
       background-position: center;
+    }
+    #rightRecordBox {
+      border: 1px solid green;
+      display: inline-block;
+      position: absolute;
+      float: right;
+      right: 250px;
+      width: 25%;
+      text-align: center;
     }
 }
 
