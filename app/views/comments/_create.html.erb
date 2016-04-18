@@ -1,6 +1,15 @@
-<% @comment.each do |c| %>
-  <tr>
-    <td><%= c.user.profile.username %></td>
-    <td><%= c.content %></td>
-  </tr>
+<% @comment.reverse_order.each do |c| %>
+  <% if c.user_id == @arena.first.user_id %>
+    <tr class="leftCommentRow">
+      <td class="leftUsername"><%= c.user.profile.username %></td>
+      <td class="comment" id="leftComment"><%= c.content %></td>
+      <td class="rightUsername"></td>
+    </tr>
+  <% else %>
+    <tr class="rightCommentRow">
+      <td class="leftUsername"></td>
+      <td class="comment" id="rightComment"><%= c.content %></td>
+      <td class="rightUsername"><%= c.user.profile.username %></td>
+    </tr>
+  <% end %>
 <% end %>

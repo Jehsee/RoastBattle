@@ -8,7 +8,7 @@ $(function() {
   var num_of_img = $("img").length
   if (num_of_img == 2) {
     var counter = setInterval(fiveSecTimer, 1000)
-    var count = 10;
+    var count = 2;
     console.log("five sec timer starts")
     function fiveSecTimer() {
       count = count-1;
@@ -20,7 +20,7 @@ $(function() {
           console.log("sixty sec timer starts")
           function sixtySecTimer() {
             battleCount = battleCount-1;
-            if (battleCount < 0) {
+              if (battleCount < 0) {
               clearInterval(battleCounter);
               // tally up votes and update record
               var leftTotal = $("#voteTotalLeft").text().slice(0, -2) //mystery '%' added somewhere which is why '-2'
@@ -49,8 +49,8 @@ $(function() {
                   // return;
               } // closes final else if
 
-               $.ajax("/check_arena")
-               location.reload()
+               // $.ajax("/check_arena")
+               // location.reload()
                return;
             } // closes if battle count<0 statement
 
@@ -69,3 +69,4 @@ $(function() {
 }) // final closing tag
 
 console.log("this is outside the faye function")
+
