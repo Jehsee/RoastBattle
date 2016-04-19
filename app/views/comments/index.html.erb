@@ -2,15 +2,27 @@
 
   <div id="vsBanner">
     <div class="innerVsBox" id="leftUsernameBox">
-      <% if @arena.count == 1 || @arena.count == 2 %>
+      <% if @arena.count == 0 %>
+        <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+          <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
+        <% end %>
+
+      <% elsif @arena.count == 1 || @arena.count == 2 %>
         <%= @arena.first.user.profile.username %>
       <% end %>
     </div>
     <div class="innerVsBox" id="vsButton"><span id="vs">VS<span></div>
     <div class="innerVsBox" id="rightUsernameBox">
-      <% if @arena.count == 2 %>
+      <% if @arena.count == 1%>
+        <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+          <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
+        <% end %>
+      <% elsif @arena.count == 2 %>
         <%= @arena.last.user.profile.username %>
       <% end %>
+    </div>
+    <div id="timerSlider">
+      <div id="timer"></div>
     </div>
   </div>
 
@@ -18,8 +30,9 @@
   <div id="leftProfileBox">
     <% if @arena.count == 1 %>
       <% firstArenaMember = @arena.first %>
-        <div id="leftProfilePic" style="background-image: url('<%= firstArenaMember.user.profile.profilepic.url(:medium) %>')">
+        <div class="profilePic" id="leftProfilePic" style="background-image: url('<%= firstArenaMember.user.profile.profilepic.url(:medium) %>')">
         </div>
+
         <div id="leftRecordBox">
           <h2>Win</h2>
           <h3><%= firstArenaMember.user.profile.wins %></h3>
@@ -28,12 +41,24 @@
           <h2>Ties</h2>
           <h3><%= firstArenaMember.user.profile.ties %></h3>
         </div>
+
+        <div id="leftDescriptionBox">
+          <%= firstArenaMember.user.profile.description %>
+        </div>
+
+        <div id="leftVoteBox">
+          <div id="voteTotalLeft">
+            100%
+          </div>
+        </div>
+
     <% end %>
 
     <% if @arena.count == 2 %>
       <% firstArenaMember = @arena.first %>
-        <div id="leftProfilePic" style="background-image: url('<%= firstArenaMember.user.profile.profilepic.url(:medium) %>')">
+        <div class="profilePic" id="leftProfilePic" style="background-image: url('<%= firstArenaMember.user.profile.profilepic.url(:medium) %>')">
         </div>
+
         <div id="leftRecordBox">
           <h2>Win</h2>
           <h3><%= firstArenaMember.user.profile.wins %></h3>
@@ -42,17 +67,26 @@
           <h2>Ties</h2>
           <h3><%= firstArenaMember.user.profile.ties %></h3>
         </div>
-        <div id="voteTotalLeft">zero</div>
-      <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-        <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm") do %>
-          <%= submit_tag("Vote") %>
-        <% end %>
-      <% end %>
+
+        <div id="leftDescriptionBox">
+          <%= firstArenaMember.user.profile.description %>
+        </div>
+
+        <div id="leftVoteBox">
+          <div id="voteTotalLeft">
+            100%
+          </div>
+            <% if !user_signed_in? && @arena.count == 2 || user_signed_in? && @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
+              <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm") do %>
+                <%= submit_tag("Vote") %>
+              <% end %>
+            <% end %>
+        </div>
   </div>
 
   <div id="rightProfileBox">
         <% secondArenaMember = @arena.last %>
-          <div id="rightProfilePic" style="background-image: url('<%= secondArenaMember.user.profile.profilepic.url(:medium) %>')">
+          <div class="profilePic" id="rightProfilePic" style="background-image: url('<%= secondArenaMember.user.profile.profilepic.url(:medium) %>')">
           </div>
         <div id="rightRecordBox">
           <h2>Win</h2>
@@ -62,38 +96,53 @@
           <h2>Ties</h2>
           <h3><%= secondArenaMember.user.profile.ties %></h3>
         </div>
-        <div id="voteTotalRight">zero</div>
 
-        <% if !user_signed_in? && @arena.count == 2 || @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-          <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteForm") do %>
-            <%= submit_tag("Vote") %>
-          <% end %>
-        <% end %>
+        <div id="rightDescriptionBox">
+          <%= secondArenaMember.user.profile.description %>
+        </div>
 
-    <% end %>
+        <div id="rightVoteBox">
+          <div id="voteTotalRight">
+            100%
+          </div>
+          <% if !user_signed_in? && @arena.count == 2 || user_signed_in? && @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
+                <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteForm") do %>
+                  <%= submit_tag("Vote") %>
+                <% end %>
+              <% end %>
+        </div>
+      <% end %>
+    <%# if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+        <%#= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
+    <%# end %>
+
   </div>
 
   <div id="commentsContainer">
-    <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
-      <div class='commentBox'>
-        <%= form_tag(comments_path, method: :post, remote: true, class: "roastForm") do %>
-          <%= label_tag(:content, "Destroy your opponent here:") %>
-          <%= text_field_tag(:content) %>
-          <%= submit_tag("Submit!") %>
-        <% end %>
-      </div>
-    <% end %>
+          <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
+              <% if current_user.id == @arena.first.user_id %>
+                <div class="commentBox">
+                  <%= form_tag(comments_path, method: :post, remote: true, class: "roastFormLeft") do %>
+                    <%= label_tag(:content, "Destroy your opponent here:") %>
+                    <%= text_field_tag(:content) %>
+                    <%= submit_tag("Submit!") %>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="commentBox">
+                  <%= form_tag(comments_path, method: :post, remote: true, class: "roastFormRight") do %>
+                    <%= label_tag(:content, "Destroy your opponent here:") %>
+                    <%= text_field_tag(:content) %>
+                    <%= submit_tag("Submit!") %>
+                  <% end %>
+                </div>
+              <% end %>
+          <% end %>
+
+
     <table id="roastCommentsBox"></table>
-  </div>
 
 
-          <div id="timer"></div>
+    </div>
 
-
-
-
-
-    <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
-        <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
-    <% end %>
-  </div>
+</div>

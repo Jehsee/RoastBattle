@@ -5,7 +5,9 @@
 <%= form_for @profile, :url => profile_path,
 :html => { :multipart => true } do |f| %>
  <%= f.file_field :profilepic %><br>
- <%= f.label :username, @profile.username %>
+ <%= f.label :username, "Username: " %>
  <%= f.text_field :username %><br>
+ <%= f.label :description, "Description: " %>
+ <%= f.text_field :description %></br>
  <%= f.submit :update %>
 <% end %>

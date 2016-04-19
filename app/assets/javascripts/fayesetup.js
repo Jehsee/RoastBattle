@@ -5,7 +5,7 @@ $(function() {
     console.log("this is within the faye function")
   })
   console.log("at this point, should check # of images")
-  var num_of_img = $("img").length
+  var num_of_img = $("div.profilePic").length
   if (num_of_img == 2) {
     var counter = setInterval(fiveSecTimer, 1000)
     var count = 2;
@@ -16,7 +16,7 @@ $(function() {
          clearInterval(counter);
           // start another 60 sec timer
           var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 10;
+          var battleCount = 20;
           console.log("sixty sec timer starts")
           function sixtySecTimer() {
             battleCount = battleCount-1;
@@ -63,10 +63,13 @@ $(function() {
       } // closes if counter<0 statement
 
       // Pre-Battle display of Timer
-      $("#timer").html( "Roasting begins in " + count + " seconds.")
+      $("#timer").html( "Get Ready..." + count + " seconds.")
     } // closes five sec timer function
   } // closes the if statement checking 2 img elements
 }) // final closing tag
 
 console.log("this is outside the faye function")
+
+
+
 
