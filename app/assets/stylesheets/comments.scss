@@ -1,9 +1,13 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  /*background-color: #1F1B1C;*/
+}
 
 #container {
   /*border: 1px solid black;*/
+
   display: inline-block;
   position: absolute;
   right: 0px;
@@ -16,6 +20,7 @@
   /*border: 1px solid red;*/
   display: inline-block;
   position: relative;
+  z-index: 2;
   top: 0px;
   left: 50%;
   transform: translate(-50%);
@@ -24,7 +29,7 @@
 }
 
 .innerVsBox {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   display: inline-block;
   position: relative;
   top: 65%;
@@ -32,23 +37,36 @@
 }
 
 #leftUsernameBox {
+  box-shadow: 0 0 10px #000000;
+  background-color: #703A99;
+  border-radius: 10px;
+  /*color: white;*/
   float: left;
   width: 48%;
   height: 60%;
   text-align: center;
+  font-size: 50px;
 }
 
 #rightUsernameBox {
+  box-shadow: 0 0 10px #000000;
+  background-color: #703A99;
+  border-radius: 10px;
+  /*color: white;*/
+  z-index: -1;
   float: right;
   width: 48%;
   height: 60%;
   text-align: center;
+  font-size: 50px;
 }
 
 #vsButton {
+  box-shadow: 0 0 10px #000000;
   width: 100px;
   height: 100px;
   border-radius: 100%;
+  background-color: lemonchiffon;
   position: absolute;
   float: left;
   top: 15px;
@@ -58,26 +76,52 @@
     #vs {
       /*border: 1px solid black;*/
       position: relative;
-      top: 20px;
-      font-size: 3.5em;
+      top: 14px;
+      font-size: 4.2em;
       /*transform: translateY(-50%);*/
     }
 }
 
+#timerSlider {
+  /*border: 1px solid black;*/
+  background-color: #8B65B7;
+  border-radius: 10px;
+  z-index: -2;
+  display: inline-block;
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  top: 60px;
+  text-align: bottom;
+    #timer {
+      /*border: 1px solid black;*/
+      color: white;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      bottom: 0px;
+      width: 100%;
+      text-align: center;
+    }
+}
+
 #leftProfileBox {
-  border: 1px solid red;
-  z-index: -1;
-  background-color: pink;
+  /*border: 1px solid red;*/
+  /*z-index: -1;*/
+  box-shadow: -5px 5px 20px #000000;
+  background-color: brown;
   display: inline-block;
   position: absolute;
   float: left;
   top: 14%;
   left: 5%;
   width: 44.8%;
-  height: 55%;
+  height: 50%;
   overflow: hidden;
     #leftProfilePic {
-      border: 1px solid black;
+      /*border: 1px solid black;*/
       float: left;
       height: 80%;
       width: 250px;
@@ -85,29 +129,57 @@
       background-position: center;
     }
     #leftRecordBox {
-      border: 1px solid green;
+      /*border: 1px solid green;*/
       display: inline-block;
       position: absolute;
       left: 250px;
+      height: 80%;
       width: 25%;
       text-align: center;
+    }
+    #leftDescriptionBox {
+      border: 1px solid black;
+      display: inline-block;
+      position: absolute;
+      left: 0%;
+      bottom: 0%;
+      height: 18%;
+      width: 100%;
+      text-align: center;
+    }
+    #leftVoteBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      right: 0%;
+      top: 30%;
+      width: 22%;
+      height: 20%;
+      text-align: center;
+      font-size: 2.5em;
+        #voteTotalLeft {
+          position: relative;
+          top: 20%;
+          /*transform: translateY(-50%);*/
+        }
     }
 }
 
 #rightProfileBox {
-  border: 1px solid red;
-  background-color: pink;
-  z-index: -1;
+  /*border: 1px solid red;*/
+  box-shadow: 5px 5px 20px #000000;
+  background-color: cornflowerblue;
+  /*z-index: -1;*/
   display: inline-block;
   position: absolute;
   float: right;
   top: 14%;
   right: 5%;
   width: 44.8%;
-  height: 55%;
+  height: 50%;
   overflow: hidden;
     #rightProfilePic {
-      border:1px solid black;
+      /*border:1px solid black;*/
       float: right;
       height: 80%;
       width: 250px;
@@ -115,49 +187,92 @@
       background-position: center;
     }
     #rightRecordBox {
-      border: 1px solid green;
+      /*border: 1px solid green;*/
       display: inline-block;
       position: absolute;
       float: right;
       right: 250px;
+      height: 80%;
       width: 25%;
       text-align: center;
     }
+    #rightDescriptionBox {
+      border: 1px solid black;
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      height: 18%;
+      width: 100%;
+      text-align: center;
+    }
+    #rightVoteBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      left: 0%;
+      top: 30%;
+      width: 22%;
+      height: 20%;
+      text-align: center;
+      font-size: 2.5em;
+        #voteTotalRight {
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+    }
 }
 
-#roastCommentsBox {
-  border: 1px solid black;
+.roastFormRight {
+  text-align: right;
+}
+
+.roastFormLeft {
+  padding-left: 10px;
 }
 
 .leftUsername {
-  border: 1px solid black;
-  text-align: left;
-}
-
-.comment {
-  width: 80%;
+  /*border: 1px solid black;*/
+  display: inline-block;
 }
 
 #leftComment {
   text-align: left;
+  background-color: brown;
+  display: inline-block;
+  border-radius: 5px;
+  max-width: 350px;
+}
+
+.rightCommentRow {
+  text-align: right;
 }
 
 #rightComment {
+  position: relative;
   text-align: right;
+  background-color: cornflowerblue;
+  display: inline-block;
+  border-radius: 5px;
+  max-width: 350px;
 }
 
 .rightUsername {
-  border: 1px solid black;
-  text-align: right;
+  /*border: 1px solid black;*/
+  display: inline-block;
 }
 
 #commentsContainer {
-  border: 1px solid black;
+  /*border: 1px solid red;*/
+  box-shadow: 0 0 10px #000000;
+  background-color: lemonchiffon;
+  border-radius: 10px;
   display: inline-block;
   position: absolute;
   width: 80%;
-  height: 20%;
-  top: 70%;
+  height: 30%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%);
   overflow: scroll;
