@@ -1,31 +1,46 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  /*background-color: #1F1B1C;*/
-}
+
 
 #container {
   /*border: 1px solid black;*/
-
   display: inline-block;
   position: absolute;
   right: 0px;
   top: 0px;
-  width: 84%;
+  bottom: 0;
+  left: 0;
+}
+
+#leftContainer {
+
+  /*border: 1px solid red;*/
+  position: absolute;
+  z-index: -3;
+  left: 0;
+  width: 49.9%;
+  height: 100%;
+}
+
+#rightContainer {
+  /*border: 1px solid green;*/
+  z-index: -3;
+  position: absolute;
+  right: 0;
+  width: 49.9%;
   height: 100%;
 }
 
 #vsBanner {
-  /*border: 1px solid red;*/
+  border: 1px solid red;
   display: inline-block;
-  position: relative;
-  z-index: 2;
+  position: absolute;
   top: 0px;
   left: 50%;
   transform: translate(-50%);
-  width: 95%;
-  height: 15%;
+  width: 100%;
+  height: 20%;
 }
 
 .innerVsBox {
@@ -37,22 +52,20 @@ body {
 }
 
 #leftUsernameBox {
-  box-shadow: 0 0 10px #000000;
+  /*box-shadow: 0 0 10px #000000;*/
   background-color: #703A99;
-  border-radius: 10px;
-  /*color: white;*/
+  color: white;
   float: left;
   width: 48%;
-  height: 60%;
+  height: 80%;
   text-align: center;
   font-size: 50px;
 }
 
 #rightUsernameBox {
-  box-shadow: 0 0 10px #000000;
+  /*box-shadow: 0 0 10px #000000;*/
   background-color: #703A99;
-  border-radius: 10px;
-  /*color: white;*/
+  color: white;
   z-index: -1;
   float: right;
   width: 48%;
@@ -63,8 +76,8 @@ body {
 
 #vsButton {
   box-shadow: 0 0 10px #000000;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 100%;
   background-color: lemonchiffon;
   position: absolute;
@@ -74,16 +87,16 @@ body {
   transform: translate(-50%);
   text-align: center;
     #vs {
-      /*border: 1px solid black;*/
+      border: 1px solid black;
       position: relative;
-      top: 14px;
-      font-size: 4.2em;
-      /*transform: translateY(-50%);*/
+      top: 15%;
+      font-size: 6.5em;
+      transform: translateY(-50);
     }
 }
 
 #timerSlider {
-  /*border: 1px solid black;*/
+  border: 1px solid black;
   background-color: #8B65B7;
   border-radius: 10px;
   z-index: -2;
@@ -96,7 +109,7 @@ body {
   top: 60px;
   text-align: bottom;
     #timer {
-      /*border: 1px solid black;*/
+      border: 1px solid black;
       color: white;
       position: absolute;
       left: 50%;
@@ -107,11 +120,11 @@ body {
     }
 }
 
-#leftProfileBox {
+/*#leftProfileBox {*/
   /*border: 1px solid red;*/
   /*z-index: -1;*/
-  box-shadow: -5px 5px 20px #000000;
-  background-color: brown;
+  /*box-shadow: -5px 5px 20px #000000;
+  background-color: mediumspringgreen;
   display: inline-block;
   position: absolute;
   float: left;
@@ -120,17 +133,17 @@ body {
   width: 44.8%;
   height: 50%;
   overflow: hidden;
-    #leftProfilePic {
+    #leftProfilePic {*/
       /*border: 1px solid black;*/
-      float: left;
+      /*float: left;
       height: 80%;
       width: 250px;
       background-repeat: no-repeat;
       background-position: center;
     }
-    #leftRecordBox {
+    #leftRecordBox {*/
       /*border: 1px solid green;*/
-      display: inline-block;
+      /*display: inline-block;
       position: absolute;
       left: 250px;
       height: 80%;
@@ -147,9 +160,9 @@ body {
       width: 100%;
       text-align: center;
     }
-    #leftVoteBox {
+    #leftVoteBox {*/
       /*border: 1px solid black;*/
-      display: inline-block;
+      /*display: inline-block;
       position: absolute;
       right: 0%;
       top: 30%;
@@ -159,18 +172,18 @@ body {
       font-size: 2.5em;
         #voteTotalLeft {
           position: relative;
-          top: 20%;
+          top: 20%;*/
           /*transform: translateY(-50%);*/
-        }
+       /* }
     }
 }
 
-#rightProfileBox {
+#rightProfileBox {*/
   /*border: 1px solid red;*/
-  box-shadow: 5px 5px 20px #000000;
-  background-color: cornflowerblue;
+  /*box-shadow: 5px 5px 20px #000000;
+  background-color: cornflowerblue;*/
   /*z-index: -1;*/
-  display: inline-block;
+  /*display: inline-block;
   position: absolute;
   float: right;
   top: 14%;
@@ -178,17 +191,17 @@ body {
   width: 44.8%;
   height: 50%;
   overflow: hidden;
-    #rightProfilePic {
+    #rightProfilePic {*/
       /*border:1px solid black;*/
-      float: right;
+      /*float: right;
       height: 80%;
       width: 250px;
       background-repeat: no-repeat;
       background-position: center;
     }
-    #rightRecordBox {
+    #rightRecordBox {*/
       /*border: 1px solid green;*/
-      display: inline-block;
+      /*display: inline-block;
       position: absolute;
       float: right;
       right: 250px;
@@ -206,9 +219,9 @@ body {
       width: 100%;
       text-align: center;
     }
-    #rightVoteBox {
+    #rightVoteBox {*/
       /*border: 1px solid black;*/
-      display: inline-block;
+      /*display: inline-block;
       position: absolute;
       left: 0%;
       top: 30%;
@@ -232,9 +245,9 @@ body {
   padding-left: 10px;
 }
 
-.leftUsername {
+.leftUsername {*/
   /*border: 1px solid black;*/
-  display: inline-block;
+  /*display: inline-block;
 }
 
 #leftComment {
@@ -258,14 +271,14 @@ body {
   max-width: 350px;
 }
 
-.rightUsername {
+.rightUsername {*/
   /*border: 1px solid black;*/
-  display: inline-block;
+  /*display: inline-block;
 }
 
-#commentsContainer {
+#commentsContainer {*/
   /*border: 1px solid red;*/
-  box-shadow: 0 0 10px #000000;
+  /*box-shadow: 0 0 10px #000000;
   background-color: lemonchiffon;
   border-radius: 10px;
   display: inline-block;
@@ -279,7 +292,7 @@ body {
     #roastCommentsBox {
       width:100%;
     }
-}
+}*/
 
 /*#adv-round-rectangle{
 border-width: 0px 12px 0px 12px;
@@ -291,38 +304,10 @@ border-radius:40px 40px 60px 60px;
  }  */
 
 
-
-/*h1 {
-  text-align: center;
-}*/
-/*
-#roastarena {
-  border: 1px solid black;
-  width: 100%;
-    #joinleft {
-      border: 1px solid red;
-      display: inline-block;
-      width: 40%;
-      text-align: center;
-    }
-    #vs {
-      border: 1px solid yellow;
-      display: inline-block;
-      width: 18%;
-      text-align: center;
-    }
-    #joinright {
-      border: 1px solid red;
-      display: inline-block;
-      width: 40%;
-      text-align: center;
-    }
-}*/
-
-.commentBox {
+/*.commentBox {
   display: none;
 }
 
 .voteForm {
   display: none;
-}
+}*/
