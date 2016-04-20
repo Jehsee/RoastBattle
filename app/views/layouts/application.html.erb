@@ -7,17 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!--   <nav id="navBar">
-    <ul>
+  <nav id="navBar">
     <% if user_signed_in? %>
-      <li><%= link_to("Profile", profile_path(current_user.profile.id), method: :get) %></li>
-      <li><%= link_to("Sign Out", destroy_user_session_path, method: :delete) %></li>
+      <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink") %>
+      <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink") %>
     <% else %>
-      <li><%= link_to("Get me back in the game. Sign In.", user_session_path, method: :get) %></li>
-      <li><%= link_to("Sign Up to roast somebody", new_user_registration_path, method: :get) %></li>
+      <%= link_to("Sign In", user_session_path, method: :get, class: "leftLink") %>
+      <%= link_to("Sign Up", new_user_registration_path, method: :get, class: "rightLink") %>
     <% end %>
-  </ul>
-  </nav> -->
+  </nav>
 
 <p class="notice"><%= flash[:notice] %></p>
 <p class="alert"><%= flash[:alert] %></p>
