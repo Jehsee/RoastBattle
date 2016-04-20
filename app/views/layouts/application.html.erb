@@ -5,30 +5,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', "http://localhost:9292/faye.js", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Bangers|Fjalla+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="sidebar">
-  <div id="logo">
-    ROAST
-  </div>
-  <h3>Rules/Guidelines</h3>
-  <p>1. You must have a profile picture and a username to battle.</p>
-  <p>2. At the end of 90 seconds, whoever has more votes wins.</p>
-  <p>3. If at the end of 30, 60, AND 75 seconds, a user has 100% of the votes, the other user is knocked out.</p>
-
-
   <nav id="navBar">
-    <ul>
     <% if user_signed_in? %>
-      <li><%= link_to("Profile", profile_path(current_user.profile.id), method: :get) %></li>
-      <li><%= link_to("Can't handle the heat. Sign Out.", destroy_user_session_path, method: :delete) %></li>
+      <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink") %>
+      <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink") %>
     <% else %>
-      <li><%= link_to("Get me back in the game. Sign In.", user_session_path, method: :get) %></li>
-      <li><%= link_to("Sign Up to roast somebody", new_user_registration_path, method: :get) %></li>
+      <%= link_to("Sign In", user_session_path, method: :get, class: "leftLink") %>
+      <%= link_to("Sign Up", new_user_registration_path, method: :get, class: "rightLink") %>
     <% end %>
-  </ul>
   </nav>
-</div>
 
 <p class="notice"><%= flash[:notice] %></p>
 <p class="alert"><%= flash[:alert] %></p>

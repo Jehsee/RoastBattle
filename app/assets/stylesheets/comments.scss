@@ -1,151 +1,132 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  /*background-color: #1F1B1C;*/
-}
+
 
 #container {
   /*border: 1px solid black;*/
-
   display: inline-block;
   position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 84%;
-  height: 100%;
-}
-
-#vsBanner {
-  /*border: 1px solid red;*/
-  display: inline-block;
-  position: relative;
-  z-index: 2;
-  top: 0px;
-  left: 50%;
-  transform: translate(-50%);
-  width: 95%;
-  height: 15%;
-}
-
-.innerVsBox {
-  /*border: 1px solid black;*/
-  display: inline-block;
-  position: relative;
-  top: 65%;
-  transform: translateY(-50%);
-}
-
-#leftUsernameBox {
-  box-shadow: 0 0 10px #000000;
-  background-color: #703A99;
-  border-radius: 10px;
-  /*color: white;*/
-  float: left;
-  width: 48%;
-  height: 60%;
-  text-align: center;
-  font-size: 50px;
-}
-
-#rightUsernameBox {
-  box-shadow: 0 0 10px #000000;
-  background-color: #703A99;
-  border-radius: 10px;
-  /*color: white;*/
-  z-index: -1;
-  float: right;
-  width: 48%;
-  height: 60%;
-  text-align: center;
-  font-size: 50px;
+  z-index: -5;
+  right: 0;
+  top: 0%;
+  bottom: 0;
+  left: 0%;
 }
 
 #vsButton {
-  box-shadow: 0 0 10px #000000;
-  width: 100px;
-  height: 100px;
-  border-radius: 100%;
-  background-color: lemonchiffon;
+  /*border: 1px solid black;*/
   position: absolute;
-  float: left;
-  top: 15px;
   left: 50%;
   transform: translate(-50%);
   text-align: center;
-    #vs {
-      /*border: 1px solid black;*/
-      position: relative;
-      top: 14px;
-      font-size: 4.2em;
-      /*transform: translateY(-50%);*/
-    }
+  font-size: 8em;
+  font-family: 'bangers';
+  color: rgba(0, 0, 0, 0.7);
 }
 
-#timerSlider {
-  /*border: 1px solid black;*/
-  background-color: #8B65B7;
-  border-radius: 10px;
-  z-index: -2;
-  display: inline-block;
+#line {
+  border: 1px solid white;
   position: absolute;
-  width: 150px;
-  height: 100px;
+  z-index: 0;
+  width: 70%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: white;
+  top: 20%;
   left: 50%;
   transform: translate(-50%);
-  top: 60px;
-  text-align: bottom;
-    #timer {
-      /*border: 1px solid black;*/
-      color: white;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      bottom: 0px;
-      width: 100%;
-      text-align: center;
-    }
 }
 
-#leftProfileBox {
-  /*border: 1px solid red;*/
-  /*z-index: -1;*/
-  box-shadow: -5px 5px 20px #000000;
-  background-color: brown;
-  display: inline-block;
+#timer {
+  /*border: 1px solid white;*/
   position: absolute;
-  float: left;
-  top: 14%;
-  left: 5%;
-  width: 44.8%;
-  height: 50%;
-  overflow: hidden;
+  font-family: 'bangers';
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 4em;
+  color: white;
+}
+
+#leftUsernameBox {
+  /*border: 1px solid black;*/
+  width: 80%;
+  height: 10%;
+  position: absolute;
+  right: 15%;
+  top: 5%;
+  font-size: 4em;
+  text-align: right;
+  color: #A4DE66;
+  color: white;
+  font-family: 'bangers';
+  text-transform: uppercase;
+}
+
+#rightUsernameBox {
+  /*border: 1px solid black;*/
+  width: 80%;
+  height: 10%;
+  position: absolute;
+  left: 15%;
+  top: 5%;
+  font-size: 4em;
+  text-align: left;
+  color: white;
+  font-family: 'bangers';
+  /*color: #6AD6FD;*/
+  text-transform: uppercase;
+}
+
+#leftContainer {
+  background-color: #6AD6FD;
+  /*border: 1px solid red;*/
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  width: 50%;
+  height: 100%;
     #leftProfilePic {
       /*border: 1px solid black;*/
-      float: left;
-      height: 80%;
-      width: 250px;
+      box-shadow: 0 0 50px 0px white;
+      border-radius: 20px;
+      position: absolute;
+      top: 25%;
+      left: 5%;
+      height: 57%;
+      width: 50%;
       background-repeat: no-repeat;
       background-position: center;
-    }
-    #leftRecordBox {
-      /*border: 1px solid green;*/
-      display: inline-block;
-      position: absolute;
-      left: 250px;
-      height: 80%;
-      width: 25%;
-      text-align: center;
+      background-size: cover;
     }
     #leftDescriptionBox {
-      border: 1px solid black;
+      /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
-      left: 0%;
+      font-family: 'fjalla one';
+      left: 5%;
       bottom: 0%;
-      height: 18%;
-      width: 100%;
+      height: 15%;
+      width: 45%;
       text-align: center;
+      font-size: 100%;
+      color: black;
+      padding: 10px;
+      overflow: scroll;
+    }
+    #leftRecordBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      color: rgba(0, 0, 0, 0.7);
+      font-family: 'bangers';
+      top: 13%;
+      right: 20%;
+      height: 5%;
+      width: 80%;
+      text-align: right;
     }
     #leftVoteBox {
       /*border: 1px solid black;*/
@@ -153,58 +134,72 @@ body {
       position: absolute;
       right: 0%;
       top: 30%;
-      width: 22%;
+      width: 25%;
       height: 20%;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 4em;
+      color: white;
         #voteTotalLeft {
-          position: relative;
-          top: 20%;
-          /*transform: translateY(-50%);*/
+          /*border: 1px solid black;*/
+          position: absolute;
+          right: 30%;
+          top: 30%;
+      font-family: 'bangers';
+        }
+        .voteFormLeft {
+          position: absolute;
+          top: 60%;
+          right: 25%;
         }
     }
 }
 
-#rightProfileBox {
-  /*border: 1px solid red;*/
-  box-shadow: 5px 5px 20px #000000;
-  background-color: cornflowerblue;
-  /*z-index: -1;*/
-  display: inline-block;
+#rightContainer {
+  /*border: 1px solid green;*/
+  background-color: #A4DE66;
   position: absolute;
-  float: right;
-  top: 14%;
-  right: 5%;
-  width: 44.8%;
-  height: 50%;
-  overflow: hidden;
+  z-index: -1;
+  right: 0;
+  width: 50%;
+  height: 100%;
     #rightProfilePic {
-      /*border:1px solid black;*/
-      float: right;
-      height: 80%;
-      width: 250px;
+      /*border: 1px solid black;*/
+      box-shadow: 0 0 50px 0px white;
+      border-radius: 20px;
+      position: absolute;
+      top: 25%;
+      right: 5%;
+      height: 57%;
+      width: 50%;
       background-repeat: no-repeat;
       background-position: center;
-    }
-    #rightRecordBox {
-      /*border: 1px solid green;*/
-      display: inline-block;
-      position: absolute;
-      float: right;
-      right: 250px;
-      height: 80%;
-      width: 25%;
-      text-align: center;
+      background-size: cover;
     }
     #rightDescriptionBox {
-      border: 1px solid black;
+      /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
-      right: 0px;
-      bottom: 0px;
-      height: 18%;
-      width: 100%;
+      font-family: 'fjalla one';
+      right: 5%;
+      bottom: 0%;
+      height: 15%;
+      width: 45%;
       text-align: center;
+      font-size: 100%;
+      color: black;
+      padding: 10px;
+    }
+    #rightRecordBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      font-family: 'bangers';
+      color: rgba(0, 0, 0, 0.7);
+      top: 13%;
+      left: 20%;
+      height: 5%;
+      width: 80%;
+      text-align: left;
     }
     #rightVoteBox {
       /*border: 1px solid black;*/
@@ -212,112 +207,29 @@ body {
       position: absolute;
       left: 0%;
       top: 30%;
-      width: 22%;
+      width: 25%;
       height: 20%;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 4em;
+      color: white;
         #voteTotalRight {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
+          /*border: 1px solid black;*/
+          position: absolute;
+          left: 30%;
+          top: 30%;
+      font-family: 'bangers';
+        }
+        .voteFormRight {
+          position: absolute;
+          top: 60%;
+          left: 25%;
         }
     }
 }
 
-.roastFormRight {
-  text-align: right;
-}
-
-.roastFormLeft {
-  padding-left: 10px;
-}
-
-.leftUsername {
-  /*border: 1px solid black;*/
-  display: inline-block;
-}
-
-#leftComment {
-  text-align: left;
-  background-color: brown;
-  display: inline-block;
-  border-radius: 5px;
-  max-width: 350px;
-}
-
-.rightCommentRow {
-  text-align: right;
-}
-
-#rightComment {
-  position: relative;
-  text-align: right;
-  background-color: cornflowerblue;
-  display: inline-block;
-  border-radius: 5px;
-  max-width: 350px;
-}
-
-.rightUsername {
-  /*border: 1px solid black;*/
-  display: inline-block;
-}
-
 #commentsContainer {
-  /*border: 1px solid red;*/
-  box-shadow: 0 0 10px #000000;
-  background-color: lemonchiffon;
-  border-radius: 10px;
-  display: inline-block;
-  position: absolute;
-  width: 80%;
-  height: 30%;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%);
-  overflow: scroll;
-    #roastCommentsBox {
-      width:100%;
-    }
+  display: none;
 }
-
-/*#adv-round-rectangle{
-border-width: 0px 12px 0px 12px;
-border-style: double;
-border-color: violet;
-border-radius:40px 40px 60px 60px;
--moz-border-radius:40px 40px 60px 60px;
--webkit-border-radius:40px 40px 60px 60px;
- }  */
-
-
-
-/*h1 {
-  text-align: center;
-}*/
-/*
-#roastarena {
-  border: 1px solid black;
-  width: 100%;
-    #joinleft {
-      border: 1px solid red;
-      display: inline-block;
-      width: 40%;
-      text-align: center;
-    }
-    #vs {
-      border: 1px solid yellow;
-      display: inline-block;
-      width: 18%;
-      text-align: center;
-    }
-    #joinright {
-      border: 1px solid red;
-      display: inline-block;
-      width: 40%;
-      text-align: center;
-    }
-}*/
 
 .commentBox {
   display: none;
@@ -325,4 +237,145 @@ border-radius:40px 40px 60px 60px;
 
 .voteForm {
   display: none;
+}
+
+#rightVoteButton {
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0 0 20px 0px black;
+  background-color: #A4DE66;
+  position: relative;
+  left: 40%;
+  border-radius: 5px;
+  width: 100px;
+  font-family: 'fjalla one';
+  font-size: .2em;
+}
+
+#leftVoteButton {
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0 0 20px 0px black;
+  background-color: #6AD6FD;
+  position: relative;
+  right: 40%;
+  border-radius: 5px;
+  width: 100px;
+  font-family: 'fjalla one';
+  font-size: .2em;
+}
+
+.roastFormRight {
+  font-family: 'fjalla one';
+  text-align: right;
+  color: white;
+  margin-bottom: 20px;
+    #content {
+      border-radius: 5px;
+      width: 80%;
+      background-color: #A4DE66;
+    }
+    #submit {
+      font-family: 'fjalla one';
+      border-radius: 5px;
+      background-color: #A4DE66;
+      color: black;
+    }
+}
+
+.roastFormLeft {
+  font-family: 'fjalla one';
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+  margin-bottom: 20px;
+    #content {
+      border-radius: 5px;
+      width: 80%;
+      background-color: #6AD6FD;
+    }
+    #submit {
+      font-family: 'fjalla one';
+      border-radius: 5px;
+      background-color: #6AD6FD;
+      color: black;
+    }
+}
+
+/*#content {
+  border-radius: 5px;
+  background-color:
+}*/
+
+#commentsContainer {
+  /*border: 1px solid red;*/
+  box-shadow: 0 0 50px 0px white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  /*border-top-right-radius: 10px;*/
+  display: inline-block;
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  left: 50%;
+  bottom: 3%;
+  transform: translate(-50%);
+  overflow-y: scroll;
+    #roastCommentsTable {
+      /*border: 1px solid red;*/
+      width: 100%;
+      /*height: 400px;*/
+    }
+
+    .comment {
+      max-width: 60%;
+    }
+    #leftCommentRow {
+      text-align: left;
+    }
+    #rightCommentRow {
+      /*border: 1px solid red;*/
+      text-align: right;
+    }
+    #leftComment {
+      /*border: 1px solid black;*/
+      /*display: inline-block;*/
+      border-radius: 10px;
+      background-color: #6AD6FD;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+      float: left;
+      font-family: 'fjalla one';
+    }
+    #rightComment {
+      /*border: 1px solid black;*/
+      /*display: inline-block;*/
+      border-radius: 10px;
+      background-color: #A4DE66;
+      padding-right: 10px;
+      padding-left: 10px;
+      text-align: center;
+      float: right;
+      font-family: 'fjalla one';
+    }
+    .leftUsername {
+      /*border: 1px solid black;*/
+      color: white;
+      text-transform: uppercase;
+      display: inline-block;
+      float: left;
+      /*font-family: 'bangers';*/
+      font-family: 'fjalla one';
+    }
+    .rightUsername {
+      /*border: 1px solid black;*/
+      color: white;
+      text-transform: uppercase;
+      display: inline-block;
+      float: right;
+      /*font-family: 'bangers';*/
+      font-family: 'fjalla one';
+    }
 }

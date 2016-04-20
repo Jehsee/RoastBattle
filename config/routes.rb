@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :arenas
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'home#index'
+  root 'comments#index'
 
   get 'update_profile_ties' => 'comments#update_profile_ties'
   get 'update_profile_right' => 'comments#update_profile_right'
