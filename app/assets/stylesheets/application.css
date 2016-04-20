@@ -26,6 +26,7 @@
 
 .leftLink {
   position: absolute;
+  font-family: 'fjalla one';
   left: 1%;
   top: 10%;
   color: white;
@@ -34,6 +35,7 @@
 
 .rightLink {
   position: absolute;
+  font-family: 'fjalla one';
   right: 1%;
   top: 10%;
   color: white;
@@ -43,6 +45,7 @@
 .notice {
   position: absolute;
   display: inline-block;
+  font-family: 'fjalla one';
   top: -2%;
   left: 50%;
   transform: translate(-50%);
@@ -52,6 +55,7 @@
 .alert {
   position: absolute;
   display: inline-block;
+  font-family: 'fjalla one';
   top: -2%;
   left: 50%;
   transform: translate(-50%);

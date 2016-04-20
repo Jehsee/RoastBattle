@@ -21,6 +21,7 @@
   transform: translate(-50%);
   text-align: center;
   font-size: 8em;
+  font-family: 'bangers';
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -38,7 +39,9 @@
 }
 
 #timer {
+  /*border: 1px solid white;*/
   position: absolute;
+  font-family: 'bangers';
   top: 25%;
   left: 50%;
   transform: translate(-50%);
@@ -58,6 +61,7 @@
   text-align: right;
   color: #A4DE66;
   color: white;
+  font-family: 'bangers';
   text-transform: uppercase;
 }
 
@@ -71,6 +75,7 @@
   font-size: 4em;
   text-align: left;
   color: white;
+  font-family: 'bangers';
   /*color: #6AD6FD;*/
   text-transform: uppercase;
 }
@@ -100,6 +105,7 @@
       /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
+      font-family: 'fjalla one';
       left: 5%;
       bottom: 0%;
       height: 15%;
@@ -114,6 +120,8 @@
       /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
+      color: rgba(0, 0, 0, 0.7);
+      font-family: 'bangers';
       top: 13%;
       right: 20%;
       height: 5%;
@@ -134,13 +142,14 @@
         #voteTotalLeft {
           /*border: 1px solid black;*/
           position: absolute;
-          right: 5%;
-          top: 40%;
+          right: 30%;
+          top: 30%;
+      font-family: 'bangers';
         }
         .voteFormLeft {
           position: absolute;
           top: 60%;
-          right: 10%;
+          right: 25%;
         }
     }
 }
@@ -170,6 +179,7 @@
       /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
+      font-family: 'fjalla one';
       right: 5%;
       bottom: 0%;
       height: 15%;
@@ -183,6 +193,8 @@
       /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
+      font-family: 'bangers';
+      color: rgba(0, 0, 0, 0.7);
       top: 13%;
       left: 20%;
       height: 5%;
@@ -203,13 +215,14 @@
         #voteTotalRight {
           /*border: 1px solid black;*/
           position: absolute;
-          left: 5%;
-          top: 40%;
+          left: 30%;
+          top: 30%;
+      font-family: 'bangers';
         }
         .voteFormRight {
           position: absolute;
           top: 60%;
-          left: 10%;
+          left: 25%;
         }
     }
 }
@@ -226,7 +239,34 @@
   display: none;
 }
 
+#rightVoteButton {
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0 0 20px 0px black;
+  background-color: #A4DE66;
+  position: relative;
+  left: 40%;
+  border-radius: 5px;
+  width: 100px;
+  font-family: 'fjalla one';
+  font-size: .2em;
+}
+
+#leftVoteButton {
+  border: 1px solid white;
+  color: white;
+  box-shadow: 0 0 20px 0px black;
+  background-color: #6AD6FD;
+  position: relative;
+  right: 40%;
+  border-radius: 5px;
+  width: 100px;
+  font-family: 'fjalla one';
+  font-size: .2em;
+}
+
 .roastFormRight {
+  font-family: 'fjalla one';
   text-align: right;
   color: white;
   margin-bottom: 20px;
@@ -236,6 +276,7 @@
       background-color: #A4DE66;
     }
     #submit {
+      font-family: 'fjalla one';
       border-radius: 5px;
       background-color: #A4DE66;
       color: black;
@@ -243,6 +284,7 @@
 }
 
 .roastFormLeft {
+  font-family: 'fjalla one';
   color: white;
   text-align: left;
   padding-left: 10px;
@@ -253,6 +295,7 @@
       background-color: #6AD6FD;
     }
     #submit {
+      font-family: 'fjalla one';
       border-radius: 5px;
       background-color: #6AD6FD;
       color: black;
@@ -304,6 +347,7 @@
       padding-right: 10px;
       text-align: center;
       float: left;
+      font-family: 'fjalla one';
     }
     #rightComment {
       /*border: 1px solid black;*/
@@ -314,6 +358,7 @@
       padding-left: 10px;
       text-align: center;
       float: right;
+      font-family: 'fjalla one';
     }
     .leftUsername {
       /*border: 1px solid black;*/
@@ -321,6 +366,8 @@
       text-transform: uppercase;
       display: inline-block;
       float: left;
+      /*font-family: 'bangers';*/
+      font-family: 'fjalla one';
     }
     .rightUsername {
       /*border: 1px solid black;*/
@@ -328,5 +375,7 @@
       text-transform: uppercase;
       display: inline-block;
       float: right;
+      /*font-family: 'bangers';*/
+      font-family: 'fjalla one';
     }
 }

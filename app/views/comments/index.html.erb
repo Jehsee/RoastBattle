@@ -75,7 +75,7 @@
               </div>
                 <% if !user_signed_in? && @arena.count == 2 || user_signed_in? && @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
                     <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteFormLeft") do %>
-                      <%= submit_tag("Vote") %>
+                      <%= submit_tag("Vote", id: "leftVoteButton") %>
                     <% end %>
                 <% end %>
             </div>
@@ -120,7 +120,7 @@
           </div>
             <% if !user_signed_in? && @arena.count == 2 || user_signed_in? && @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
                   <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteFormRight") do %>
-                    <%= submit_tag("Vote") %>
+                    <%= submit_tag("Vote", id: "rightVoteButton") %>
                   <% end %>
             <% end %>
         </div>
