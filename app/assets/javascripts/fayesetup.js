@@ -7,6 +7,7 @@ $(function() {
   console.log("at this point, should check # of images")
   var num_of_img = $("div.profilePic").length
   if (num_of_img == 2) {
+    $("#vs").addClass("mediumburn")
     var counter = setInterval(fiveSecTimer, 1000)
     var count = 2;
     console.log("five sec timer starts")
@@ -20,44 +21,50 @@ $(function() {
           console.log("sixty sec timer starts")
           function sixtySecTimer() {
             battleCount = battleCount-1;
-              if (battleCount < 0) {
-              clearInterval(battleCounter);
-              // tally up votes and update record
               var leftTotal = $("#voteTotalLeft").text().slice(0, -2) //mystery '%' added somewhere which is why '-2'
-              console.log(leftTotal)
               var rightTotal = $("#voteTotalRight").text().slice(0, -1)
-              console.log("total right: " + rightTotal)
+                if (battleCount < 0) {
+                clearInterval(battleCounter);
 
-              // have some transition effect here with the tally's
-                  // make winner profile pic bigger, fade out loser, slowly remove element
-                  // listen? to see if its removed?
-                        // $("#myDiv").on("remove", function () {
-                                  // alert("Element was removed");
-                                // })
-              // if ()
-              if (leftTotal > rightTotal) {
-                $.ajax("/update_profile_left")
-                  // location.reload()
-                  // return
-              } else if ( rightTotal > leftTotal) {
-                $.ajax("/update_profile_right")
-                  // location.reload()
-                  // return;
-              } else if ( rightTotal === leftTotal ) {
-                $.ajax("/update_profile_ties")
-                  // location.reload()
-                  // return;
-              } // closes final else if
+                if (leftTotal > rightTotal) {
+                  $.ajax("/update_profile_left")
+                } else if ( rightTotal > leftTotal) {
+                  $.ajax("/update_profile_right")
+                } else if ( rightTotal === leftTotal ) {
+                  $.ajax("/update_profile_ties")
+                } // closes final else if
 
-               // $.ajax("/check_arena")
-               // location.reload()
-               return;
+                $.ajax("/check_arena")
+                location.reload()
+                return;
             } // closes if battle count<0 statement
 
             // Display of Battle Timer and comment form
             $(".commentBox").removeClass("commentBox")
             $(".voteForm").removeClass("voteForm")
             $("#timer").html( battleCount )
+
+            // fire effect
+            if ( leftTotal <= 100 ) {
+              $("#voteTotalLeft").removeClass("mediumburn").addClass("strongburn")
+            }
+            if ( leftTotal <= 89 ) {
+              $("#voteTotalLeft").removeClass("strongburn").addClass("mediumburn")
+            }
+            if ( leftTotal <= 75 ) {
+              $("#voteTotalLeft").removeClass("strongburn").removeClass("mediumburn")
+            }
+
+            if ( rightTotal <= 100 ) {
+              $("#voteTotalRight").removeClass("mediumburn").addClass("strongburn")
+            }
+            if ( rightTotal <= 89 ) {
+              $("#voteTotalRight").removeClass("strongburn").addClass("mediumburn")
+            }
+            if ( rightTotal <= 75 ) {
+              $("#voteTotalRight").removeClass("strongburn").removeClass("mediumburn")
+            }
+
           } //closes sixty sec timer func
       } // closes if counter<0 statement
 

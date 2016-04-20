@@ -5,19 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', "http://localhost:9292/faye.js", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='https://fonts.googleapis.com/css?family=Bangers|Fjalla+One' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Bangers|Fjalla+One|Passion+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <nav id="navBar">
-    <% if user_signed_in? %>
-      <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink") %>
-      <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink") %>
-    <% else %>
-      <%= link_to("Sign In", user_session_path, method: :get, class: "leftLink") %>
-      <%= link_to("Sign Up", new_user_registration_path, method: :get, class: "rightLink") %>
-    <% end %>
-  </nav>
-
 <p class="notice"><%= flash[:notice] %></p>
 <p class="alert"><%= flash[:alert] %></p>
 

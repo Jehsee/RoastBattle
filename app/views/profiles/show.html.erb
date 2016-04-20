@@ -1,13 +1,27 @@
-<h1>Profile Page</h1>
+<div class="container">
+  <nav id="navBar">
+    <%= link_to("Edit Profile", edit_profile_path(@profile.id), method: :get, class: "rightLink") %>
+    <%= link_to("Back to the Roast", root_path, method: :get, class: "leftLink") %>
+  </nav>
 
-<%= image_tag @profile.profilepic.url(:medium) %></br>
 
-Username: <%= @profile.username %></br>
-Description: <%= @profile.description %></br>
-Total Wins: <%= @profile.wins %></br>
-Total Losses: <%= @profile.loss %></br>
-Total Ties: <%= @profile.ties %></br>
-Total Knockouts: <%= @profile.ko %></br>
+  <div id="topProfileContainer"></div>
+  <div id="bottomProfileContainer"></div>
 
-<%= link_to("Edit Profile", edit_profile_path(@profile.id), method: :get) %><br>
-<%= link_to("Back to the Roast", root_path, method: :get) %>
+  <div id="profileBox">
+    <h1><%= @profile.username %></h1>
+      <%= image_tag @profile.profilepic.url(:medium) %>
+
+      <h3>Description</h3>
+      <p><%= @profile.description %></p>
+
+      <h3>Record</h3>
+      <p>
+        Win: <%= @profile.wins %>
+        Loss: <%= @profile.loss %>
+        Tie: <%= @profile.ties %>
+        Knockout:  <%= @profile.ko %>
+      </p>
+  </div>
+
+</div>
