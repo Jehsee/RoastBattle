@@ -57,8 +57,7 @@ $(function() {
             // Display of Battle Timer and comment form
             $(".commentBox").removeClass("commentBox")
             $(".voteForm").removeClass("voteForm")
-            $("#timer").html( battleCount + " seconds")
-
+            $("#timer").html( battleCount )
           } //closes sixty sec timer func
       } // closes if counter<0 statement
 

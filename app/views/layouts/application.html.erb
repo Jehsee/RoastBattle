@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav id="navBar">
+<!--   <nav id="navBar">
     <ul>
     <% if user_signed_in? %>
       <li><%= link_to("Profile", profile_path(current_user.profile.id), method: :get) %></li>
@@ -17,7 +17,7 @@
       <li><%= link_to("Sign Up to roast somebody", new_user_registration_path, method: :get) %></li>
     <% end %>
   </ul>
-  </nav>
+  </nav> -->
 
 <p class="notice"><%= flash[:notice] %></p>
 <p class="alert"><%= flash[:alert] %></p>

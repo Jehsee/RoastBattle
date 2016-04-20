@@ -7,307 +7,322 @@
   /*border: 1px solid black;*/
   display: inline-block;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  z-index: -5;
+  right: 0;
+  top: 0;
   bottom: 0;
   left: 0;
 }
 
-#leftContainer {
-
-  /*border: 1px solid red;*/
+#vsButton {
+  /*border: 1px solid black;*/
   position: absolute;
-  z-index: -3;
-  left: 0;
-  width: 49.9%;
-  height: 100%;
-}
-
-#rightContainer {
-  /*border: 1px solid green;*/
-  z-index: -3;
-  position: absolute;
-  right: 0;
-  width: 49.9%;
-  height: 100%;
-}
-
-#vsBanner {
-  border: 1px solid red;
-  display: inline-block;
-  position: absolute;
-  top: 0px;
   left: 50%;
   transform: translate(-50%);
-  width: 100%;
-  height: 20%;
+  text-align: center;
+  font-size: 8em;
+  color: black;
 }
 
-.innerVsBox {
-  /*border: 1px solid black;*/
-  display: inline-block;
-  position: relative;
-  top: 65%;
-  transform: translateY(-50%);
+#line {
+  border: 1px solid white;
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: white;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#timer {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  font-size: 4em;
+  color: white;
 }
 
 #leftUsernameBox {
-  /*box-shadow: 0 0 10px #000000;*/
-  background-color: #703A99;
+  /*border: 1px solid black;*/
+  width: 80%;
+  height: 10%;
+  position: absolute;
+  right: 15%;
+  top: 5%;
+  font-size: 4em;
+  text-align: right;
+  color: #A4DE66;
   color: white;
-  float: left;
-  width: 48%;
-  height: 80%;
-  text-align: center;
-  font-size: 50px;
+  text-transform: uppercase;
 }
 
 #rightUsernameBox {
-  /*box-shadow: 0 0 10px #000000;*/
-  background-color: #703A99;
+  /*border: 1px solid black;*/
+  width: 80%;
+  height: 10%;
+  position: absolute;
+  left: 15%;
+  top: 5%;
+  font-size: 4em;
+  text-align: left;
   color: white;
-  z-index: -1;
-  float: right;
-  width: 48%;
-  height: 60%;
-  text-align: center;
-  font-size: 50px;
+  /*color: #6AD6FD;*/
+  text-transform: uppercase;
 }
 
-#vsButton {
-  box-shadow: 0 0 10px #000000;
-  width: 150px;
-  height: 150px;
-  border-radius: 100%;
-  background-color: lemonchiffon;
-  position: absolute;
-  float: left;
-  top: 15px;
-  left: 50%;
-  transform: translate(-50%);
-  text-align: center;
-    #vs {
-      border: 1px solid black;
-      position: relative;
-      top: 15%;
-      font-size: 6.5em;
-      transform: translateY(-50);
-    }
-}
-
-#timerSlider {
-  border: 1px solid black;
-  background-color: #8B65B7;
-  border-radius: 10px;
-  z-index: -2;
-  display: inline-block;
-  position: absolute;
-  width: 150px;
-  height: 100px;
-  left: 50%;
-  transform: translate(-50%);
-  top: 60px;
-  text-align: bottom;
-    #timer {
-      border: 1px solid black;
-      color: white;
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%);
-      bottom: 0px;
-      width: 100%;
-      text-align: center;
-    }
-}
-
-/*#leftProfileBox {*/
+#leftContainer {
+  background-color: #6AD6FD;
   /*border: 1px solid red;*/
-  /*z-index: -1;*/
-  /*box-shadow: -5px 5px 20px #000000;
-  background-color: mediumspringgreen;
-  display: inline-block;
   position: absolute;
-  float: left;
-  top: 14%;
-  left: 5%;
-  width: 44.8%;
-  height: 50%;
-  overflow: hidden;
-    #leftProfilePic {*/
+  z-index: -1;
+  left: 0;
+  width: 50%;
+  height: 100%;
+    #leftProfilePic {
       /*border: 1px solid black;*/
-      /*float: left;
-      height: 80%;
-      width: 250px;
+      box-shadow: 0 0 50px 0px white;
+      border-radius: 20px;
+      position: absolute;
+      top: 25%;
+      left: 5%;
+      height: 400px;
+      width: 350px;
       background-repeat: no-repeat;
       background-position: center;
-    }
-    #leftRecordBox {*/
-      /*border: 1px solid green;*/
-      /*display: inline-block;
-      position: absolute;
-      left: 250px;
-      height: 80%;
-      width: 25%;
-      text-align: center;
+      background-size: cover;
     }
     #leftDescriptionBox {
-      border: 1px solid black;
+      /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
-      left: 0%;
+      left: 5%;
       bottom: 0%;
-      height: 18%;
-      width: 100%;
+      height: 15%;
+      width: 350px;
       text-align: center;
+      font-size: 2em;
+      color: black;
+      padding: 10px;
     }
-    #leftVoteBox {*/
+    #leftRecordBox {
       /*border: 1px solid black;*/
-      /*display: inline-block;
+      display: inline-block;
+      position: absolute;
+      top: 13%;
+      right: 20%;
+      height: 5%;
+      width: 40%;
+      text-align: right;
+    }
+    #leftVoteBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
       position: absolute;
       right: 0%;
       top: 30%;
-      width: 22%;
-      height: 20%;
-      text-align: center;
-      font-size: 2.5em;
-        #voteTotalLeft {
-          position: relative;
-          top: 20%;*/
-          /*transform: translateY(-50%);*/
-       /* }
-    }
-}
-
-#rightProfileBox {*/
-  /*border: 1px solid red;*/
-  /*box-shadow: 5px 5px 20px #000000;
-  background-color: cornflowerblue;*/
-  /*z-index: -1;*/
-  /*display: inline-block;
-  position: absolute;
-  float: right;
-  top: 14%;
-  right: 5%;
-  width: 44.8%;
-  height: 50%;
-  overflow: hidden;
-    #rightProfilePic {*/
-      /*border:1px solid black;*/
-      /*float: right;
-      height: 80%;
-      width: 250px;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    #rightRecordBox {*/
-      /*border: 1px solid green;*/
-      /*display: inline-block;
-      position: absolute;
-      float: right;
-      right: 250px;
-      height: 80%;
       width: 25%;
-      text-align: center;
-    }
-    #rightDescriptionBox {
-      border: 1px solid black;
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      bottom: 0px;
-      height: 18%;
-      width: 100%;
-      text-align: center;
-    }
-    #rightVoteBox {*/
-      /*border: 1px solid black;*/
-      /*display: inline-block;
-      position: absolute;
-      left: 0%;
-      top: 30%;
-      width: 22%;
       height: 20%;
       text-align: center;
-      font-size: 2.5em;
-        #voteTotalRight {
-          position: relative;
-          top: 50%;
-          transform: translateY(-50%);
+      font-size: 4em;
+      color: white;
+        #voteTotalLeft {
+          /*border: 1px solid black;*/
+          position: absolute;
+          right: 5%;
+          top: 40%;
+        }
+        .voteFormLeft {
+          position: absolute;
+          top: 60%;
+          right: 10%;
         }
     }
 }
 
-.roastFormRight {
-  text-align: right;
-}
-
-.roastFormLeft {
-  padding-left: 10px;
-}
-
-.leftUsername {*/
-  /*border: 1px solid black;*/
-  /*display: inline-block;
-}
-
-#leftComment {
-  text-align: left;
-  background-color: brown;
-  display: inline-block;
-  border-radius: 5px;
-  max-width: 350px;
-}
-
-.rightCommentRow {
-  text-align: right;
-}
-
-#rightComment {
-  position: relative;
-  text-align: right;
-  background-color: cornflowerblue;
-  display: inline-block;
-  border-radius: 5px;
-  max-width: 350px;
-}
-
-.rightUsername {*/
-  /*border: 1px solid black;*/
-  /*display: inline-block;
-}
-
-#commentsContainer {*/
-  /*border: 1px solid red;*/
-  /*box-shadow: 0 0 10px #000000;
-  background-color: lemonchiffon;
-  border-radius: 10px;
-  display: inline-block;
+#rightContainer {
+  /*border: 1px solid green;*/
+  background-color: #A4DE66;
   position: absolute;
-  width: 80%;
-  height: 30%;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%);
-  overflow: scroll;
-    #roastCommentsBox {
-      width:100%;
+  z-index: -1;
+  right: 0;
+  width: 50%;
+  height: 100%;
+    #rightProfilePic {
+      /*border: 1px solid black;*/
+      box-shadow: 0 0 50px 0px white;
+      border-radius: 20px;
+      position: absolute;
+      top: 25%;
+      right: 5%;
+      height: 400px;
+      width: 350px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
-}*/
+    #rightDescriptionBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      right: 5%;
+      bottom: 0%;
+      height: 15%;
+      width: 350px;
+      text-align: center;
+      font-size: 2em;
+      color: black;
+      padding: 10px;
+    }
+    #rightRecordBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      top: 13%;
+      left: 20%;
+      height: 5%;
+      width: 40%;
+      text-align: left;
+    }
+    #rightVoteBox {
+      /*border: 1px solid black;*/
+      display: inline-block;
+      position: absolute;
+      left: 0%;
+      top: 30%;
+      width: 25%;
+      height: 20%;
+      text-align: center;
+      font-size: 4em;
+      color: white;
+        #voteTotalRight {
+          /*border: 1px solid black;*/
+          position: absolute;
+          left: 5%;
+          top: 40%;
+        }
+        .voteFormRight {
+          position: absolute;
+          top: 60%;
+          left: 10%;
+        }
+    }
+}
 
-/*#adv-round-rectangle{
-border-width: 0px 12px 0px 12px;
-border-style: double;
-border-color: violet;
-border-radius:40px 40px 60px 60px;
--moz-border-radius:40px 40px 60px 60px;
--webkit-border-radius:40px 40px 60px 60px;
- }  */
 
 
-/*.commentBox {
+.commentBox {
   display: none;
 }
 
 .voteForm {
   display: none;
+}
+
+.roastFormRight {
+  text-align: right;
+  color: white;
+  margin-bottom: 20px;
+    #content {
+      border-radius: 5px;
+      width: 80%;
+      background-color: #A4DE66;
+    }
+    #submit {
+      border-radius: 5px;
+      background-color: #A4DE66;
+      color: black;
+    }
+}
+
+.roastFormLeft {
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+  margin-bottom: 20px;
+    #content {
+      border-radius: 5px;
+      width: 80%;
+      background-color: #6AD6FD;
+    }
+    #submit {
+      border-radius: 5px;
+      background-color: #6AD6FD;
+      color: black;
+    }
+}
+
+/*#content {
+  border-radius: 5px;
+  background-color:
 }*/
+
+#commentsContainer {
+  /*border: 1px solid red;*/
+  box-shadow: 0 0 50px 0px white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  /*border-top-right-radius: 10px;*/
+  display: inline-block;
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  left: 50%;
+  bottom: 0px;
+  transform: translate(-50%);
+  overflow-y: scroll;
+    #roastCommentsTable {
+      /*border: 1px solid red;*/
+      width: 100%;
+      /*height: 400px;*/
+    }
+
+    .comment {
+      max-width: 60%;
+    }
+    #leftCommentRow {
+      text-align: left;
+    }
+    #rightCommentRow {
+      /*border: 1px solid red;*/
+      text-align: right;
+    }
+    #leftComment {
+      /*border: 1px solid black;*/
+      /*display: inline-block;*/
+      border-radius: 10px;
+      background-color: #6AD6FD;
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center;
+      float: left;
+    }
+    #rightComment {
+      /*border: 1px solid black;*/
+      /*display: inline-block;*/
+      border-radius: 10px;
+      background-color: #A4DE66;
+      padding-right: 10px;
+      padding-left: 10px;
+      text-align: center;
+      float: right;
+    }
+    .leftUsername {
+      /*border: 1px solid black;*/
+      color: white;
+      text-transform: uppercase;
+      display: inline-block;
+      float: left;
+    }
+    .rightUsername {
+      /*border: 1px solid black;*/
+      color: white;
+      text-transform: uppercase;
+      display: inline-block;
+      float: right;
+    }
+}

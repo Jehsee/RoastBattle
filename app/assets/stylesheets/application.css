@@ -14,22 +14,22 @@
  *= require_self
  */
 
-#navBar {
+/*#navBar {*/
 
-  background-color: gray;
-  /*border: 1px solid black;*/
-  display: inline-block;
+  /*background-color: gray;*/
+
+  /*display: inline-block;
   position: absolute;
   width: 100%;
   height: 5%;
   top: 0px;
   left: 0px;
-  /*box-shadow: 0 0 10px #000000;*/
-}
 
-li {
-  display: inline-block;
-}
+}*/
+
+/*li {*/
+  /*display: inline-block;*/
+/*}*/
 
 /*#logo {
   font-size: 40px;
