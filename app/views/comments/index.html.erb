@@ -1,17 +1,45 @@
-<div id="container">
-  <div id="vsButton">
-    <span id="vs">VS<span>
-  </div>
-  <div id="line"></div>
+<div class="container">
+  <nav id="navBar">
+    <% if user_signed_in? %>
+      <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink mediumburn") %>
+      <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink mediumburn") %>
+    <% else %>
+      <%= link_to("Sign In", user_session_path, method: :get, class: "leftLink mediumburn") %>
+      <%= link_to("Sign Up", new_user_registration_path, method: :get, class: "rightLink mediumburn") %>
+    <% end %>
+  </nav>
+
+
+  <% if @arena.count >= 1  %>
+    <div id="vsButton">
+      <span id="vs">VS<span>
+    </div>
+    <div id="line"></div>
+  <% end %>
+
 
   <div id="timer"></div>
 
   <div id="leftContainer">
 
         <% if @arena.count == 0 %>
-          <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
-            <div id="leftUsernameBox">
-              <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
+            <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
+              <div id="leftUsernameBox">
+                <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink strongburn" %>
+              </div>
+
+              <div id="quotes">
+                <p>
+                  "No longer from head to foot than from hip to hip, she is spherical, like a globe. I could find out countries in her!" </br>
+                  -William Shakespeare, The Comedy of Errors</br>
+
+                </p>
+              </div>
+            <% end %>
+          <% if !user_signed_in? %>
+            <div id="logoBox">
+              <span class="logo strongburn">Roast Battle!</span>
+              <span id="waitingUnderLogo">Please wait for next battle <span id="blink">....</span></span>
             </div>
           <% end %>
         <% end %>
@@ -87,14 +115,27 @@
       <div id="rightUsernameBox">
         <% if @arena.count == 1 %>
             <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
-              <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink" %>
+              <%= link_to 'Join the Arena', join_arena_path, method: :get, remote: true, class: "joinLink strongburn" %>
             <% else %>
-              <span>Waiting...</span>
+              <span class="waiting">Waiting...</span>
             <% end %>
         <% elsif @arena.count == 2 %>
             <%= @arena.last.user.profile.username %>
         <% end %>
       </div>
+
+      <% if @arena.count == 0 || @arena.count == 1 %>
+        <div id="guidelines">
+          <p>
+            <span> Rules/Guidelines</span></br>
+            1. You must have a profile pic and a username to join the arena.</br>
+            2. Whoever has the most votes at the end of 90 seconds wins.</br>
+            3. Anyone not in the arena is able to vote on the current battle.</br>
+            4. When the timer hits 60, 30, and 15 seconds, if a user has at least 90% of the votes he/she will win by knockout.</br>
+            5. Most importantly, Have FUN!
+          </p>
+        </div>
+      <% end %>
 
       <% if @arena.count == 2 %>
         <% secondArenaMember = @arena.last %>
@@ -129,7 +170,7 @@
   </div> <!-- closing right container -->
 
 
-  <div id="commentsContainer">
+  <div class="commentsContainer displayToggle">
 
         <% if user_signed_in? && @arena.count == 2 && @arena.where(user_id: current_user.id).exists? %>
             <% if current_user.id == @arena.first.user_id %>

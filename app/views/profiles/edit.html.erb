@@ -1,13 +1,23 @@
-<h1>Edit Profile</h1>
-<h3>You must have a username and profile pic to roast somebody.(note: make sure to validate this somewhere)</h3>
-<%= image_tag @profile.profilepic.url(:medium) %></br>
+<div class="container">
+  <nav id="navBar">
+    <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink") %>
+    <%= link_to("Back to the Roast", root_path, method: :get, class: "rightLink") %>
+  </nav>
 
-<%= form_for @profile, :url => profile_path,
-:html => { :multipart => true } do |f| %>
- <%= f.file_field :profilepic %><br>
- <%= f.label :username, "Username: " %>
- <%= f.text_field :username %><br>
- <%= f.label :description, "Description: " %>
- <%= f.text_field :description %></br>
- <%= f.submit :update %>
-<% end %>
+    <div id="topProfileContainer"></div>
+    <div id="bottomProfileContainer"></div>
+
+    <div id="editProfileBox">
+      <h1>Edit Profile</h1>
+        <%= image_tag @profile.profilepic.url(:medium) %>
+        <%= form_for @profile, :url => profile_path, :html => { :multipart => true } do |f| %>
+           <%= f.file_field :profilepic %><br>
+           <%= f.label :username, "Username: ", id: "usernameLabel" %>
+           <%= f.text_field :username %></br>
+           <%= f.label :description, "Description:" %>
+           <%= f.text_area :description %></br>
+           <%= f.submit :update, id: "updateButton" %>
+        <% end %>
+    </div>
+
+</div>
