@@ -7,7 +7,7 @@ $(function() {
   console.log("at this point, should check # of images")
   var num_of_img = $("div.profilePic").length
   if (num_of_img == 2) {
-    $("#vs").addClass("mediumburn")
+    $("#vs").addClass("strongburn")
     var counter = setInterval(fiveSecTimer, 1000)
     var count = 2;
     console.log("five sec timer starts")
@@ -34,13 +34,14 @@ $(function() {
                   $.ajax("/update_profile_ties")
                 } // closes final else if
 
-                $.ajax("/check_arena")
-                location.reload()
+                // $.ajax("/check_arena")
+                // location.reload()
                 return;
             } // closes if battle count<0 statement
 
             // Display of Battle Timer and comment form
             $(".commentBox").removeClass("commentBox")
+            $(".commentsContainer").removeClass("displayToggle")
             $(".voteForm").removeClass("voteForm")
             $("#timer").html( battleCount )
 
