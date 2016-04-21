@@ -33,7 +33,7 @@
   max-height: 100%;
     h1 {
       font-family: "bangers";
-      color: black;
+      color: white;
       font-size: 4em;
     }
     img {
@@ -128,4 +128,52 @@
 #profile_profilepic {
   position: relative;
   margin-left: 28%;
+}
+
+.login {
+  font-family: "bangers";
+  color: white;
+  font-size: 5em;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#forgotLink {
+  display: inline-block;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: "bangers";
+  color: white;
+  font-size: 2em;
+  text-align: center;
+}
+
+.field {
+  font-family: "bangers";
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%);
+  /*border: 1px solid black;*/
+  text-align: center;
+    #user_email {
+/*      position: absolute;
+      top:0;
+      right: 0;*/
+    }
+    #loginButton {
+      position: absolute;
+      bottom: -30%;
+      left: 50%;
+      transform: translate(-50%);
+      background-color: #A4DE66;
+      font-family: "bangers";
+      color: white;
+      width: 50%;
+      height:20%;
+    }
 }

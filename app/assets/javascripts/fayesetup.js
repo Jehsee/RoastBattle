@@ -17,7 +17,7 @@ $(function() {
          clearInterval(counter);
           // start another 60 sec timer
           var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 20;
+          var battleCount = 2;
           console.log("sixty sec timer starts")
           function sixtySecTimer() {
             battleCount = battleCount-1;
@@ -27,7 +27,23 @@ $(function() {
                 clearInterval(battleCounter);
 
                 if (leftTotal > rightTotal) {
+                  $("#rightProfilePic").addClass("fadeOut")
+                  $(".commentsContainer").addClass("fadeOut")
+                  $("#voteTotalRight").addClass("fadeOut")
+                  $("#voteTotalLeft").addClass("fadeOut")
+                  $(".voteFormLeft").addClass("fadeOut")
+                  $(".voteFormRight").addClass("fadeOut")
+                  $("#timer").addClass("fadeOut")
+                  $("#rightDescriptionBox").addClass("fadeOut")
+                  $(".rightContainer").attr('id', 'stretch')
                   $.ajax("/update_profile_left")
+                   // .commentsContainer #voteTotalRight #voteTotalLeft #timer
+
+
+
+
+
+
                 } else if ( rightTotal > leftTotal) {
                   $.ajax("/update_profile_right")
                 } else if ( rightTotal === leftTotal ) {
@@ -41,7 +57,6 @@ $(function() {
 
             // Display of Battle Timer and comment form
             $(".commentBox").removeClass("commentBox")
-            $(".commentsContainer").removeClass("displayToggle")
             $(".voteForm").removeClass("voteForm")
             $("#timer").html( battleCount )
 
@@ -71,6 +86,7 @@ $(function() {
 
       // Pre-Battle display of Timer
       $("#timer").html( "Get Ready..." + count + " seconds.")
+      $(".commentsContainer").removeClass("displayToggle")
     } // closes five sec timer function
   } // closes the if statement checking 2 img elements
 }) // final closing tag
