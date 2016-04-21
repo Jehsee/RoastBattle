@@ -179,3 +179,34 @@
       0 -82px 80px #cd4606,
   }
 }
+
+.fadeOut {
+  opacity: 0;
+  animation-name: fadeOut;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+}
+
+#stretch {
+  background-color: #6AD6FD;
+  animation-name: stretch;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes stretch {
+  0% {
+    background-color: #A4DE66;
+  }
+  100% {
+    background-color: #6AD6FD;
+  }
+}
