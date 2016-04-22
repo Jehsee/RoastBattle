@@ -4,6 +4,7 @@ gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'faye'
 gem 'thin'
 gem 'timers'
+gem 'private_pub'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
