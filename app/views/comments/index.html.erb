@@ -9,6 +9,9 @@
     <% end %>
   </nav>
 
+  <div class="winner strongburn hide">You Win!</div>
+  <div class="tieBreaker strongburn hide">Tie Breaker!</div>
+  <div class="noVotes mediumburn hide">Draw. No Votes.</div>
 
   <% if @arena.count >= 1  %>
     <div id="vsButton">
@@ -20,7 +23,7 @@
 
   <div id="timer"></div>
 
-  <div id="leftContainer">
+  <div class="leftContainer">
 
         <% if @arena.count == 0 %>
             <% if user_signed_in? && @arena.count < 2 && !@arena.where(user_id: current_user.id).exists? %>
@@ -30,7 +33,7 @@
 
               <div id="quotes">
                 <p>
-                  "No longer from head to foot than from hip to hip, she is spherical, like a globe. I could find out countries in her!" </br>
+                  "I would challenge you to a battle of wits, but I see you are unarmed!"</br>
                   -William Shakespeare</br>
 
                 </p>
@@ -58,7 +61,6 @@
               <p>
                 Win: <%= firstArenaMember.user.profile.wins %>
                 Loss: <%= firstArenaMember.user.profile.loss %>
-                Ties: <%= firstArenaMember.user.profile.ties %>
                 KO's: <%= firstArenaMember.user.profile.ko %>
               </p>
             </div>
@@ -88,7 +90,6 @@
               <p>
                 Win: <%= firstArenaMember.user.profile.wins %>
                 Loss: <%= firstArenaMember.user.profile.loss %>
-                Ties: <%= firstArenaMember.user.profile.ties %>
                 KO's: <%= firstArenaMember.user.profile.ko %>
               </p>
             </div>
@@ -146,7 +147,6 @@
           <p>
             Win: <%= secondArenaMember.user.profile.wins %>
             Loss: <%= secondArenaMember.user.profile.loss %>
-            Ties: <%= secondArenaMember.user.profile.ties %>
             KO's: <%= secondArenaMember.user.profile.ko %>
           </p>
         </div>

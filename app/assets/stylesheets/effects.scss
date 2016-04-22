@@ -183,12 +183,15 @@
 .fadeOut {
   opacity: 0;
   animation-name: fadeOut;
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: 1;
 }
 
 @keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
@@ -196,8 +199,13 @@
 
 #stretch {
   background-color: #6AD6FD;
+  position: absolute;
+  z-index: -10;
+  right: 0;
+  width: 50%;
+  height: 100%;
   animation-name: stretch;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: 1;
 }
@@ -205,8 +213,199 @@
 @keyframes stretch {
   0% {
     background-color: #A4DE66;
+    z-index: -10;
   }
   100% {
     background-color: #6AD6FD;
+    z-index: -10;
+  }
+}
+
+#stretchTwo {
+  background-color: #A4DE66;
+}
+
+#moveProfilePic {
+  box-shadow: 0 0 50px 0px white;
+  border-radius: 20px;
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  height: 57%;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation-name: moveRight;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveRight {
+  0% {
+    left: 5%;
+  }
+  100% {
+    left: 35%;
+  }
+}
+
+#moveProfilePicTwo {
+  /*border: 1px solid black;*/
+  box-shadow: 0 0 50px 0px white;
+  border-radius: 20px;
+  position: absolute;
+  top: 25%;
+  right: 35%;
+  height: 57%;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation-name: moveLeft;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveLeft {
+  0% {
+    right: 5%;
+  }
+  100% {
+    right: 35%;
+  }
+}
+
+
+#moveDescription {
+  /*border: 1px solid black;*/
+  display: inline-block;
+  position: absolute;
+  z-index: -10;
+  font-family: 'fjalla one';
+  left: 100%;
+  bottom: 30%;
+  height: 15%;
+  width: 45%;
+  text-align: left;
+  font-size: 95%;
+  color: black;
+  padding: 10px;
+  overflow: scroll;
+  animation-name: moveDescription;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveDescription {
+  0% {
+    left: 5%;
+    bottom: 0%;
+    z-index: 10;
+  }
+  100% {
+    left: 95%;
+    bottom: 30%;
+    z-index: 10;
+  }
+}
+
+#moveDescriptionTwo {
+  /*border: 1px solid black;*/
+  display: inline-block;
+  position: absolute;
+  font-family: 'fjalla one';
+  right: 95%;
+  bottom: 30%;
+  height: 15%;
+  width: 45%;
+  text-align: center;
+  font-size: 100%;
+  color: black;
+  padding: 10px;
+  animation-name: moveDescriptionTwo;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveDescriptionTwo {
+  0% {
+    right: 5%;
+    bottom: 0%;
+  }
+  100% {
+    right: 95%;
+    bottom: 30%;
+  }
+}
+
+#moveLeftUsernameBox {
+  /*border: 1px solid black;*/
+  width: 80%;
+  height: 10%;
+  position: absolute;
+  /*z-index: 5;*/
+  right: -80%;
+  top: 30%;
+  font-size: 7em;
+  text-align: left;
+  color: #A4DE66;
+  color: white;
+  font-family: 'bangers';
+  text-transform: uppercase;
+  animation-name: moveLeftUsernameBox;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveLeftUsernameBox {
+  0% {
+    right: 15%;
+    top: 5%;
+    font-size: 4em;
+    /*z-index: 5;*/
+  }
+  100% {
+    right: -80%;
+    top: 30%;
+    font-size: 7em;
+    /*z-index: 5;*/
+  }
+}
+
+#moveRightUsernameBox {
+  /*border: 1px solid black;*/
+  width: 80%;
+  height: 10%;
+  position: absolute;
+  left: -75%;
+  top: 30%;
+  font-size: 7em;
+  text-align: right;
+  color: white;
+  font-family: 'bangers';
+  /*color: #6AD6FD;*/
+  text-transform: uppercase;
+  animation-name: moveRightUsernameBox;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+@keyframes moveRightUsernameBox {
+  0% {
+    left: 15%;
+    top: 5%;
+    font-size: 4em;
+  }
+  100% {
+    left: -75%;
+    top: 30%;
+    font-size: 7em;
   }
 }

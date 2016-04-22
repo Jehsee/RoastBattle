@@ -9,20 +9,24 @@ $(function() {
   if (num_of_img == 2) {
     $("#vs").addClass("strongburn")
     var counter = setInterval(fiveSecTimer, 1000)
-    var count = 2;
+    var count = 10;
     console.log("five sec timer starts")
+
     function fiveSecTimer() {
+
       count = count-1;
       if (count <= 0) {
          clearInterval(counter);
           // start another 60 sec timer
           var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 2;
+          var battleCount = 10;
           console.log("sixty sec timer starts")
+
           function sixtySecTimer() {
             battleCount = battleCount-1;
-              var leftTotal = $("#voteTotalLeft").text().slice(0, -2) //mystery '%' added somewhere which is why '-2'
-              var rightTotal = $("#voteTotalRight").text().slice(0, -1)
+              var leftTotal = parseInt($("#voteTotalLeft").text())
+              var rightTotal = parseInt($("#voteTotalRight").text())
+              console.log(leftTotal + " " + rightTotal)
                 if (battleCount < 0) {
                 clearInterval(battleCounter);
 
@@ -35,23 +39,70 @@ $(function() {
                   $(".voteFormRight").addClass("fadeOut")
                   $("#timer").addClass("fadeOut")
                   $("#rightDescriptionBox").addClass("fadeOut")
+                  $("#rightUsernameBox").addClass("fadeOut")
+                  $("#rightRecordBox").addClass("fadeOut")
+                  $("#leftRecordBox").addClass("fadeOut")
+                  $("#vsButton").addClass("fadeOut")
+
                   $(".rightContainer").attr('id', 'stretch')
+                  $("#leftProfilePic").attr('id', 'moveProfilePic')
+                  $("#leftDescriptionBox").attr('id', 'moveDescription')
+                  $("#leftUsernameBox").attr('id', 'moveLeftUsernameBox')
+
+                  $(".winner").delay(2500).queue(function() {
+                      $(this).removeClass("hide")
+                    })
                   $.ajax("/update_profile_left")
-                   // .commentsContainer #voteTotalRight #voteTotalLeft #timer
-
-
-
-
 
 
                 } else if ( rightTotal > leftTotal) {
-                  $.ajax("/update_profile_right")
-                } else if ( rightTotal === leftTotal ) {
-                  $.ajax("/update_profile_ties")
-                } // closes final else if
+                  $("#leftProfilePic").addClass("fadeOut")
+                  $(".commentsContainer").addClass("fadeOut")
+                  $("#voteTotalRight").addClass("fadeOut")
+                  $("#voteTotalLeft").addClass("fadeOut")
+                  $(".voteFormLeft").addClass("fadeOut")
+                  $(".voteFormRight").addClass("fadeOut")
+                  $("#timer").addClass("fadeOut")
+                  $("#leftDescriptionBox").addClass("fadeOut")
+                  $("#leftUsernameBox").addClass("fadeOut")
+                  $("#rightRecordBox").addClass("fadeOut")
+                  $("#leftRecordBox").addClass("fadeOut")
+                  $("#vsButton").addClass("fadeOut")
+                  $(".leftContainer").addClass("fadeOut")
 
-                // $.ajax("/check_arena")
-                // location.reload()
+                  $(".container").attr('id', 'stretchTwo')
+                  $("#rightProfilePic").attr('id', 'moveProfilePicTwo')
+                  $("#rightDescriptionBox").attr('id', 'moveDescriptionTwo')
+                  $("#rightUsernameBox").attr('id', 'moveRightUsernameBox')
+
+                  $(".winner").delay(2500).queue(function() {
+                      $(this).removeClass("hide")
+                    })
+                  $.ajax("/update_profile_right")
+
+
+                } else if ( rightTotal == 50 && leftTotal == 50 ) {
+
+                  $(".tieBreaker").removeClass("hide").delay(2000).queue(function() {
+                      $(this).addClass("hide")
+                    })
+
+                    fiveSecTimer()
+                    return;
+
+                } else if ( rightTotal == 0 && leftTotal == 0 ) {
+                  console.log("hfld;ksajkfl;jsaklf;jdksajf;")
+                  $(".noVotes").removeClass("hide").delay(6000).queue(function() {
+                      $(".noVotes").addClass("hide")
+                    })
+
+                }
+
+                $.ajax("/check_arena")
+                setTimeout(function() {
+                  location.reload()
+                },6000)
+
                 return;
             } // closes if battle count<0 statement
 

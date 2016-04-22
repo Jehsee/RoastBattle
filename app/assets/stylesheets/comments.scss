@@ -14,6 +14,42 @@
   left: 0%;
 }
 
+.winner {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 8em;
+  font-family: "bangers";
+  color: white;
+}
+
+.tieBreaker {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 7.5em;
+  font-family: "bangers";
+  color: white;
+}
+
+.noVotes {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 7.5em;
+  font-family: "bangers";
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
 #quotes {
   position: absolute;
   display: inline-block;
@@ -139,11 +175,11 @@
   text-transform: uppercase;
 }
 
-#leftContainer {
+.leftContainer {
   background-color: #6AD6FD;
   /*border: 1px solid red;*/
   position: absolute;
-  z-index: -1;
+  z-index: -9;
   left: 0;
   width: 50%;
   height: 100%;
@@ -164,6 +200,7 @@
       /*border: 1px solid black;*/
       display: inline-block;
       position: absolute;
+      z-index: 10;
       font-family: 'fjalla one';
       left: 5%;
       bottom: 0%;
@@ -217,7 +254,7 @@
   /*border: 1px solid green;*/
   background-color: #A4DE66;
   position: absolute;
-  z-index: -1;
+  z-index: -10;
   right: 0;
   width: 50%;
   height: 100%;
