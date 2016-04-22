@@ -18,10 +18,12 @@ class CommentsController < ApplicationController
 
   def join_arena
     @arena = Arena.all
-      Arena.create(user_id: current_user.id, vote: 0)
-      # render comments_path
-      respond_to do |format|
-        format.js
+      if Arena.count < 2
+        Arena.create(user_id: current_user.id, vote: 0)
+        # render comments_path
+        respond_to do |format|
+          format.js
+        end
       end
     end
 
