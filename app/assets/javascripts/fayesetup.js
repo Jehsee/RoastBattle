@@ -1,5 +1,5 @@
 $(function() {
-  var faye = new Faye.Client('http://roastpubserver/herokuapp.com/faye');
+  var faye = new Faye.Client('https://roastpubserver/herokuapp.com/faye');
   faye.subscribe('/comments', function(data) {
     eval(data)
     console.log("this is within the faye function")
