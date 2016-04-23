@@ -1,4 +1,4 @@
-<% publish_to "/comments" do %>
+<% notify "/comments" do %>
   $("#roastCommentsTable").html("<%= escape_javascript(render partial: 'create') %>")
 <% end %>
 
