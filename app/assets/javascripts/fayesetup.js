@@ -1,9 +1,9 @@
-$(function() {
-  var faye = new Faye.Client('https://roastpubserver/herokuapp.com/faye.js');
-  faye.subscribe('/comments', function(data) {
-    eval(data)
-    console.log("this is within the faye function")
-  })
+// $(function() {
+//   var faye = new Faye.Client('https://roastpubserver/herokuapp.com/faye.js');
+//   faye.subscribe('/comments', function(data) {
+//     eval(data)
+//     console.log("this is within the faye function")
+//   })
   console.log("at this point, should check # of images")
   var num_of_img = $("div.profilePic").length
   if (num_of_img == 2) {
@@ -140,7 +140,7 @@ $(function() {
       $(".commentsContainer").removeClass("displayToggle")
     } // closes five sec timer function
   } // closes the if statement checking 2 img elements
-}) // final closing tag
+// }) // final closing tag
 
 console.log("this is outside the faye function")
 
