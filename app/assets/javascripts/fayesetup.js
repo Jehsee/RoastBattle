@@ -22,7 +22,7 @@ $("document").ready(function() {
          clearInterval(counter);
           // start another 60 sec timer
           var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 10;
+          var battleCount = 20;
           console.log("sixty sec timer starts")
 
           function sixtySecTimer() {
