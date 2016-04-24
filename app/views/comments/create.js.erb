@@ -1,6 +1,5 @@
 <% publish_to "/comments" do %>
   $("#roastCommentsTable").html("<%= escape_javascript(render partial: 'create') %>")
 <% end %>
-$("#roastFormRight")[0].reset();
-$("#roastFormLeft")[0].reset();
+$("#content")[0].reset();
 <%#= publish_to comments_path(@comment) %>
