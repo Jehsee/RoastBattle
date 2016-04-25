@@ -54,6 +54,12 @@ $("document").ready(function() {
                       $(this).removeClass("hide")
                     })
                   $.ajax("/update_profile_left_ko")
+
+                  $.ajax("/check_arena")
+                  setTimeout(function() {
+                    location.reload()
+                  },6000)
+                  return;
                 }
 
                 if ((battleCount === 60 || battleCount === 30 || battleCount === 15) && rightTotal>= 90) {
@@ -81,11 +87,15 @@ $("document").ready(function() {
                       $(this).removeClass("hide")
                     })
                   $.ajax("/update_profile_right_ko")
+                  $.ajax("/check_arena")
+                  setTimeout(function() {
+                    location.reload()
+                  },6000)
+                  return;
                 }
 
                 if (battleCount < 0) {
                 clearInterval(battleCounter);
-
                 if (leftTotal > rightTotal) {
                   $("#rightProfilePic").addClass("fadeOut")
                   $(".commentsContainer").addClass("fadeOut")
@@ -158,7 +168,6 @@ $("document").ready(function() {
                 setTimeout(function() {
                   location.reload()
                 },6000)
-
                 return;
             } // closes if battle count<0 statement
 
