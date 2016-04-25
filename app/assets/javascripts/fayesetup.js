@@ -12,7 +12,7 @@ $("document").ready(function() {
   if (num_of_img == 2) {
     $("#vs").addClass("strongburn")
     var counter = setInterval(fiveSecTimer, 1000)
-    var count = 5;
+    var count = 10;
     console.log("five sec timer starts")
 
     function fiveSecTimer() {
@@ -22,7 +22,7 @@ $("document").ready(function() {
          clearInterval(counter);
           // start another 60 sec timer
           var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 25;
+          var battleCount = 90;
           console.log("sixty sec timer starts")
 
           function sixtySecTimer() {
