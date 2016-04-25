@@ -18,12 +18,16 @@ class CommentsController < ApplicationController
 
   def join_arena
     @arena = Arena.all
-      if Arena.count < 2
-        Arena.create(user_id: current_user.id, vote: 0)
-        # render comments_path
-        respond_to do |format|
-          format.js
+      if current_user.profile.profilepic_file_name != nil && current_user.profile.username != (nil || "")
+        if Arena.count < 2
+          Arena.create(user_id: current_user.id, vote: 0)
+          # render comments_path
+          respond_to do |format|
+            format.js
+          end
         end
+      else
+        flash[:notice] = "You must have a profile pic and username. Please edit Profile."
       end
     end
 
