@@ -154,10 +154,10 @@ $("document").ready(function() {
 
                 }
 
-                // $.ajax("/check_arena")
-                // setTimeout(function() {
-                //   location.reload()
-                // },6000)
+                $.ajax("/check_arena")
+                setTimeout(function() {
+                  location.reload()
+                },6000)
 
                 return;
             } // closes if battle count<0 statement
