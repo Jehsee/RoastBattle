@@ -1,15 +1,25 @@
 <div class="container">
   <nav id="navBar">
     <% if user_signed_in? %>
-      <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink mediumburn") %>
-      <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink mediumburn") %>
+      <% if @arena.where(user_id: current_user.id).exists? && @arena.count == 1 %>
+        <%= link_to("Exit Arena", exit_path, method: :get, remote: true, id: "profileLink", class: "leftLink mediumburn") %>
+      <% elsif @arena.count == 1 %>
+        <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink mediumburn") %>
+        <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink mediumburn") %>
+      <% end %>
+      <% if @arena.count == 0 %>
+        <%= link_to("Profile", profile_path(current_user.profile.id), method: :get, id: "profileLink", class: "leftLink mediumburn") %>
+        <%= link_to("Sign Out", destroy_user_session_path, method: :delete, id: "signOutLink", class: "rightLink mediumburn") %>
+      <% end %>
     <% else %>
       <%= link_to("Sign In", user_session_path, method: :get, class: "leftLink mediumburn") %>
       <%= link_to("Sign Up", new_user_registration_path, method: :get, class: "rightLink mediumburn") %>
     <% end %>
   </nav>
 
+
   <div class="winner strongburn hide">You Win!</div>
+  <div class="winnerko strongburn hide">KO! You Win!</div>
   <div class="tieBreaker strongburn hide">Tie Breaker!</div>
   <div class="noVotes mediumburn hide">Draw. No Votes.</div>
 
@@ -33,17 +43,15 @@
 
               <div id="quotes">
                 <p>
-                  "I would challenge you to a battle of wits, but I see you are unarmed!"</br>
-                  -William Shakespeare</br>
-
+                  "Sticks and stones...Sticks and stones...
                 </p>
               </div>
             <% end %>
-          <% if !user_signed_in? %>
+          <% if !user_signed_in? && @arena.count == 0%>
             <div id="logoBox">
               <span class="logo strongburn">Roast Battle!</span>
-              <span id="waitingUnderLogo">Please wait for next battle <span id="blink">....</span></span>
             </div>
+            <span id="waitingUnderLogo"><span id="blink">Please wait for next battle....</span></span>
           <% end %>
         <% end %>
 
@@ -71,7 +79,7 @@
 
             <div id="leftVoteBox">
               <div id="voteTotalLeft">
-                0%
+                <span id="wait">Waiting for 1 more player.</span>
               </div>
             </div>
 
@@ -103,7 +111,7 @@
                 0%
               </div>
                 <% if !user_signed_in? && @arena.count == 2 || user_signed_in? && @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-                    <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteFormLeft") do %>
+                    <%= form_tag(vote_left_path, method: :post, remote: true, class: "voteForm voteFormLeft") do %>
                       <%= submit_tag("Vote", id: "leftVoteButton") %>
                     <% end %>
                 <% end %>
@@ -125,7 +133,7 @@
         <% end %>
       </div>
 
-      <% if @arena.count == 0 || @arena.count == 1 %>
+      <% if @arena.count == 0 %>
         <div id="guidelines">
           <p>
             <span> Rules/Guidelines</span></br>
@@ -134,6 +142,15 @@
             3. Whoever has the most votes at the end of 90 seconds wins.</br>
             4. When the timer hits 60, 30, and 15 seconds, if a user has at least 90% of the votes he/she will win by knockout.</br>
             5. Prepare your worst.
+          </p>
+        </div>
+      <% end %>
+
+      <% if @arena.count == 1 %>
+        <div id="quote">
+          <p>
+            <span>"I would challenge you to a battle of wits, but I see you are unarmed!"</br>
+            -William Shakespeare</span>
           </p>
         </div>
       <% end %>
@@ -160,7 +177,7 @@
             0%
           </div>
             <% if !user_signed_in? && @arena.count == 2 || user_signed_in? && @arena.count == 2 && !@arena.where(user_id: current_user.id).exists?%>
-                  <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteFormRight") do %>
+                  <%= form_tag(vote_right_path, method: :post, remote: true, class: "voteForm voteFormRight") do %>
                     <%= submit_tag("Vote", id: "rightVoteButton") %>
                   <% end %>
             <% end %>

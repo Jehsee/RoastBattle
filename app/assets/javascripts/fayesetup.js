@@ -12,7 +12,7 @@ $("document").ready(function() {
   if (num_of_img == 2) {
     $("#vs").addClass("strongburn")
     var counter = setInterval(fiveSecTimer, 1000)
-    var count = 10;
+    var count = 5;
     console.log("five sec timer starts")
 
     function fiveSecTimer() {
@@ -22,7 +22,7 @@ $("document").ready(function() {
          clearInterval(counter);
           // start another 60 sec timer
           var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 20;
+          var battleCount = 25;
           console.log("sixty sec timer starts")
 
           function sixtySecTimer() {
@@ -30,6 +30,59 @@ $("document").ready(function() {
               var leftTotal = parseInt($("#voteTotalLeft").text())
               var rightTotal = parseInt($("#voteTotalRight").text())
               console.log(leftTotal + " " + rightTotal)
+                if ((battleCount === 15 || battleCount === 10 || battleCount === 5) && leftTotal>= 90) {
+                  clearInterval(battleCounter);
+                  $("#rightProfilePic").addClass("fadeOut")
+                  $(".commentsContainer").addClass("fadeOut")
+                  $("#voteTotalRight").addClass("fadeOut")
+                  $("#voteTotalLeft").addClass("fadeOut")
+                  $(".voteFormLeft").addClass("fadeOut")
+                  $(".voteFormRight").addClass("fadeOut")
+                  $("#timer").addClass("fadeOut")
+                  $("#rightDescriptionBox").addClass("fadeOut")
+                  $("#rightUsernameBox").addClass("fadeOut")
+                  $("#rightRecordBox").addClass("fadeOut")
+                  $("#leftRecordBox").addClass("fadeOut")
+                  $("#vsButton").addClass("fadeOut")
+
+                  $(".rightContainer").attr('id', 'stretch')
+                  $("#leftProfilePic").attr('id', 'moveProfilePic')
+                  $("#leftDescriptionBox").attr('id', 'moveDescription')
+                  $("#leftUsernameBox").attr('id', 'moveLeftUsernameBox')
+
+                  $(".winnerko").delay(2500).queue(function() {
+                      $(this).removeClass("hide")
+                    })
+                  $.ajax("/update_profile_left_ko")
+                }
+
+                if ((battleCount === 15 || battleCount === 10 || battleCount === 5) && rightTotal>= 90) {
+                  clearInterval(battleCounter);
+                  $("#leftProfilePic").addClass("fadeOut")
+                  $(".commentsContainer").addClass("fadeOut")
+                  $("#voteTotalRight").addClass("fadeOut")
+                  $("#voteTotalLeft").addClass("fadeOut")
+                  $(".voteFormLeft").addClass("fadeOut")
+                  $(".voteFormRight").addClass("fadeOut")
+                  $("#timer").addClass("fadeOut")
+                  $("#leftDescriptionBox").addClass("fadeOut")
+                  $("#leftUsernameBox").addClass("fadeOut")
+                  $("#rightRecordBox").addClass("fadeOut")
+                  $("#leftRecordBox").addClass("fadeOut")
+                  $("#vsButton").addClass("fadeOut")
+                  $(".leftContainer").addClass("fadeOut")
+
+                  $(".container").attr('id', 'stretchTwo')
+                  $("#rightProfilePic").attr('id', 'moveProfilePicTwo')
+                  $("#rightDescriptionBox").attr('id', 'moveDescriptionTwo')
+                  $("#rightUsernameBox").attr('id', 'moveRightUsernameBox')
+
+                  $(".winnerko").delay(2500).queue(function() {
+                      $(this).removeClass("hide")
+                    })
+                  $.ajax("/update_profile_right_ko")
+                }
+
                 if (battleCount < 0) {
                 clearInterval(battleCounter);
 
@@ -101,10 +154,10 @@ $("document").ready(function() {
 
                 }
 
-                $.ajax("/check_arena")
-                setTimeout(function() {
-                  location.reload()
-                },6000)
+                // $.ajax("/check_arena")
+                // setTimeout(function() {
+                //   location.reload()
+                // },6000)
 
                 return;
             } // closes if battle count<0 statement

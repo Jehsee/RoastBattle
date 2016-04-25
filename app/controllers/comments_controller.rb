@@ -64,11 +64,31 @@ class CommentsController < ApplicationController
     redirect_to comments_path
   end
 
+   def update_profile_left_ko
+    @arena = Arena.all
+    current_win = @arena.first.user.profile.wins + 1
+    current_loss = @arena.last.user.profile.loss + 1
+    current_ko = @arena.first.user.profile.ko + 1
+    @arena.first.user.profile.update(:wins => current_win, :ko => current_ko)
+    @arena.last.user.profile.update(:loss => current_loss)
+    redirect_to comments_path
+  end
+
   def update_profile_right
     @arena = Arena.all
     current_win = @arena.last.user.profile.wins + 1
     current_loss = @arena.first.user.profile.loss + 1
     @arena.last.user.profile.update(:wins => current_win)
+    @arena.first.user.profile.update(:loss => current_loss)
+    redirect_to comments_path
+  end
+
+  def update_profile_right_ko
+    @arena = Arena.all
+    current_win = @arena.last.user.profile.wins + 1
+    current_loss = @arena.first.user.profile.loss + 1
+    current_ko = @arena.last.user.profile.ko + 1
+    @arena.last.user.profile.update(:wins => current_win, :ko => current_ko)
     @arena.first.user.profile.update(:loss => current_loss)
     redirect_to comments_path
   end
@@ -81,5 +101,25 @@ class CommentsController < ApplicationController
     @arena.last.user.profile.update(:ties => right_tie_count)
     @arena.first.user.profile.update(:ties => left_tie_count)
     redirect_to comments_path
+  end
+
+  def refresh
+    @arena = Arena.all
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def exit
+    @arena = Arena.all
+    @arena.where(user_id: current_user.id).first.destroy
+    redirect_to refresh_path
+  end
+
+  def sign_out_exit
+    @arena = Arena.all
+    @arena.where(user_id: current_user.id).first.destroy
+    current_session.destroy
+    redirect_to refresh_path
   end
 end

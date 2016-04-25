@@ -1,0 +1,27 @@
+<div class="container">
+  <div id="topProfileContainer">
+    <h2><span class="login strongburn">Login</span></h2>
+
+  </div>
+  <div id="bottomProfileContainer"></div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email %></br>
+      <%= f.email_field :email, autofocus: true, class: "email" %></br>
+      <%= f.label :password %></br>
+      <%= f.password_field :password, autocomplete: "off" %></br>
+
+      <% if devise_mapping.rememberable? -%>
+          <%= f.label :remember_me %>
+          <%= f.check_box :remember_me %>
+      <% end -%>
+      <div class="actions">
+        <%= f.submit "Log in", id: "loginButton" %>
+      </div>
+    </div>
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

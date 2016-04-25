@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: "users/sessions" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   resources :profiles
@@ -11,9 +11,14 @@ Rails.application.routes.draw do
 
   get 'update_profile_ties' => 'comments#update_profile_ties'
   get 'update_profile_right' => 'comments#update_profile_right'
+  get 'update_profile_right_ko' => 'comments#update_profile_right_ko'
   get 'update_profile_left' => 'comments#update_profile_left'
+  get 'update_profile_left_ko' => 'comments#update_profile_left_ko'
   get 'check_arena' => 'comments#check_arena'
   get 'join_arena' => 'comments#join_arena'
+  get 'refresh' => 'comments#refresh'
+  get 'exit' => 'comments#exit'
+  get 'sign_out_exit' => 'comments#sign_out_exit'
   post 'vote_left' => 'comments#vote_left'
   post 'vote_right' => 'comments#vote_right'
 
