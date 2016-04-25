@@ -30,7 +30,7 @@ $("document").ready(function() {
               var leftTotal = parseInt($("#voteTotalLeft").text())
               var rightTotal = parseInt($("#voteTotalRight").text())
               console.log(leftTotal + " " + rightTotal)
-                if ((battleCount === 15 || battleCount === 10 || battleCount === 5) && leftTotal>= 90) {
+                if ((battleCount === 60 || battleCount === 30 || battleCount === 15) && leftTotal>= 90) {
                   clearInterval(battleCounter);
                   $("#rightProfilePic").addClass("fadeOut")
                   $(".commentsContainer").addClass("fadeOut")
@@ -56,7 +56,7 @@ $("document").ready(function() {
                   $.ajax("/update_profile_left_ko")
                 }
 
-                if ((battleCount === 15 || battleCount === 10 || battleCount === 5) && rightTotal>= 90) {
+                if ((battleCount === 60 || battleCount === 30 || battleCount === 15) && rightTotal>= 90) {
                   clearInterval(battleCounter);
                   $("#leftProfilePic").addClass("fadeOut")
                   $(".commentsContainer").addClass("fadeOut")
