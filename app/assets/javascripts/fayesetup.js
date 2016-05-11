@@ -1,31 +1,20 @@
 $("document").ready(function() {
-
-// $(function() {
-//   var faye = new Faye.Client('https://roastpubserver/herokuapp.com/faye.js');
-//   faye.subscribe('/comments', function(data) {
-//     eval(data)
-//     console.log("this is within the faye function")
-//   })
-  console.log("at this point, should check # of images")
-
   var num_of_img = $("div.profilePic").length
   if (num_of_img == 2) {
     $("#vs").addClass("strongburn")
-    var counter = setInterval(fiveSecTimer, 1000)
+    var counter = setInterval(tenSecTimer, 1000)
     var count = 10;
-    console.log("five sec timer starts")
 
-    function fiveSecTimer() {
+    function tenSecTimer() {
 
       count = count-1;
       if (count <= 0) {
          clearInterval(counter);
           // start another 60 sec timer
-          var battleCounter = setInterval(sixtySecTimer, 1000)
-          var battleCount = 90;
-          console.log("sixty sec timer starts")
+          var battleCounter = setInterval(ninetySecTimer, 1000)
+          var battleCount = 65;
 
-          function sixtySecTimer() {
+          function ninetySecTimer() {
             battleCount = battleCount-1;
               var leftTotal = parseInt($("#voteTotalLeft").text())
               var rightTotal = parseInt($("#voteTotalRight").text())
@@ -33,6 +22,7 @@ $("document").ready(function() {
                 if ((battleCount === 60 || battleCount === 30 || battleCount === 15) && leftTotal>= 90) {
                   clearInterval(battleCounter);
                   $("#rightProfilePic").addClass("fadeOut")
+
                   $(".commentsContainer").addClass("fadeOut")
                   $("#voteTotalRight").addClass("fadeOut")
                   $("#voteTotalLeft").addClass("fadeOut")
@@ -153,7 +143,7 @@ $("document").ready(function() {
                       $(this).addClass("hide")
                     })
 
-                    fiveSecTimer()
+                    tenSecTimer()
                     return;
 
                 } else if ( rightTotal == 0 && leftTotal == 0 ) {
@@ -197,13 +187,13 @@ $("document").ready(function() {
               $("#voteTotalRight").removeClass("strongburn").removeClass("mediumburn")
             }
 
-          } //closes sixty sec timer func
+          } //closes ninety sec timer func
       } // closes if counter<0 statement
 
       // Pre-Battle display of Timer
       $("#timer").html( "Get Ready..." + count + " seconds.")
       $(".commentsContainer").removeClass("displayToggle")
-    } // closes five sec timer function
+    } // closes ten sec timer function
   } // closes the if statement checking 2 img elements
 // }) // final closing tag
 
